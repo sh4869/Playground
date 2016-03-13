@@ -5,13 +5,13 @@
 /* This file defines the module loader for the dart runtime.
 */
 
-var dart_library =
-  typeof module != "undefined" && module.exports || {};
+var dart_library = typeof module != "undefined" && module.exports || {};
 
 (function (dart_library) {
   'use strict';
 
   /** Note that we cannot use dart_utils.throwInternalError from here. */
+
   function throwLibraryError(message) {
     throw Error(message);
   }
@@ -33,19 +33,18 @@ var dart_library =
     }
 
     loadImports(pendingSet) {
-      return this.handleImports(this._imports, (lib) => lib.load(pendingSet));
+      return this.handleImports(this._imports, lib => lib.load(pendingSet));
     }
 
     deferLazyImports(pendingSet) {
-      return this.handleImports(this._lazyImports,
-        (lib) => {
-          pendingSet.add(lib._name);
-          return lib.stub();
+      return this.handleImports(this._lazyImports, lib => {
+        pendingSet.add(lib._name);
+        return lib.stub();
       });
     }
 
     loadLazyImports(pendingSet) {
-      return this.handleImports(pendingSet, (lib) => lib.load());
+      return this.handleImports(pendingSet, lib => lib.load());
     }
 
     handleImports(list, handler) {
@@ -63,8 +62,7 @@ var dart_library =
     load(inheritedPendingSet) {
       // Check for cycles
       if (this._state == LibraryLoader.LOADING) {
-        throwLibraryError('Circular dependence on library: '
-                              + this._name);
+        throwLibraryError('Circular dependence on library: ' + this._name);
       } else if (this._state >= LibraryLoader.LOADED) {
         return this._library;
       }
@@ -100,7 +98,9 @@ var dart_library =
 
   // Map from name to LibraryLoader
   let libraries = new Map();
-  dart_library.libraries = function() { return libraries.keys(); }
+  dart_library.libraries = function () {
+    return libraries.keys();
+  };
 
   function library(name, defaultValue, imports, lazyImports, loader) {
     let result = new LibraryLoader(name, defaultValue, imports, lazyImports, loader);
@@ -133,19 +133,27 @@ var dart_library =
 
     // Force import of core.
     var core = import_('dart/core');
-    core.Object.toString = function() {
+    core.Object.toString = function () {
       // Interface types are represented by the corresponding constructor
       // function.  This ensures that Dart interface types print properly.
       return this.name;
-    }
+    };
 
     // TODO(vsm): DOM facades?
     // See: https://github.com/dart-lang/dev_compiler/issues/173
     if (typeof NodeList !== "undefined") {
-      NodeList.prototype.get = function(i) { return this[i]; };
-      NamedNodeMap.prototype.get = function(i) { return this[i]; };
-      DOMTokenList.prototype.get = function(i) { return this[i]; };
-      HTMLCollection.prototype.get = function(i) { return this[i]; };
+      NodeList.prototype.get = function (i) {
+        return this[i];
+      };
+      NamedNodeMap.prototype.get = function (i) {
+        return this[i];
+      };
+      DOMTokenList.prototype.get = function (i) {
+        return this[i];
+      };
+      HTMLCollection.prototype.get = function (i) {
+        return this[i];
+      };
     }
 
     // This import is only needed for chrome debugging. We should provide an
@@ -153,5 +161,4 @@ var dart_library =
     var devtoolsDebugger = import_('dart/_debugger');
     devtoolsDebugger.registerDevtoolsFormatter();
   }
-
 })(dart_library);

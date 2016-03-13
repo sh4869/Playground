@@ -1,8 +1,6 @@
-dart_library.library('dart/_js_embedded_names', null, /* Imports */[
-  'dart/_runtime'
-], /* Lazy imports */[
-], function(exports, dart) {
+dart_library.library('dart/_js_embedded_names', null, /* Imports */['dart/_runtime'], /* Lazy imports */[], function (exports, dart) {
   'use strict';
+
   let dartx = dart.dartx;
   const DISPATCH_PROPERTY_NAME = "dispatchPropertyName";
   const TYPE_INFORMATION = 'typeInformation';

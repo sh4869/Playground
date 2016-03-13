@@ -1,28 +1,9 @@
-dart_library.library('dart/web_audio', null, /* Imports */[
-  'dart/_runtime',
-  'dart/html',
-  'dart/core',
-  'dart/_metadata',
-  'dart/_js_helper',
-  'dart/typed_data',
-  'dart/_interceptors',
-  'dart/async'
-], /* Lazy imports */[
-], function(exports, dart, html, core, _metadata, _js_helper, typed_data, _interceptors, async) {
+dart_library.library('dart/web_audio', null, /* Imports */['dart/_runtime', 'dart/html', 'dart/core', 'dart/_metadata', 'dart/_js_helper', 'dart/typed_data', 'dart/_interceptors', 'dart/async'], /* Lazy imports */[], function (exports, dart, html, core, _metadata, _js_helper, typed_data, _interceptors, async) {
   'use strict';
+
   let dartx = dart.dartx;
   const _connect = Symbol('_connect');
-  dart.defineExtensionNames([
-    'disconnect',
-    'connectNode',
-    'connectParam',
-    'channelCount',
-    'channelCountMode',
-    'channelInterpretation',
-    'context',
-    'numberOfInputs',
-    'numberOfOutputs'
-  ]);
+  dart.defineExtensionNames(['disconnect', 'connectNode', 'connectParam', 'channelCount', 'channelCountMode', 'channelInterpretation', 'context', 'numberOfInputs', 'numberOfOutputs']);
   class AudioNode extends html.EventTarget {
     static _() {
       dart.throw(new core.UnsupportedError("Not supported"));
@@ -71,7 +52,7 @@ dart_library.library('dart/web_audio', null, /* Imports */[
     }
   }
   dart.setSignature(AudioNode, {
-    constructors: () => ({_: [AudioNode, []]}),
+    constructors: () => ({ _: [AudioNode, []] }),
     methods: () => ({
       [_connect]: [dart.void, [dart.dynamic, core.int], [core.int]],
       [dartx.disconnect]: [dart.void, [core.int]],
@@ -81,17 +62,7 @@ dart_library.library('dart/web_audio', null, /* Imports */[
   });
   AudioNode[dart.metadata] = () => [dart.const(new _metadata.DomName('AudioNode')), dart.const(new _metadata.Experimental()), dart.const(new _js_helper.Native("AudioNode"))];
   dart.registerExtension(dart.global.AudioNode, AudioNode);
-  dart.defineExtensionNames([
-    'getByteFrequencyData',
-    'getByteTimeDomainData',
-    'getFloatFrequencyData',
-    'getFloatTimeDomainData',
-    'fftSize',
-    'frequencyBinCount',
-    'maxDecibels',
-    'minDecibels',
-    'smoothingTimeConstant'
-  ]);
+  dart.defineExtensionNames(['getByteFrequencyData', 'getByteTimeDomainData', 'getFloatFrequencyData', 'getFloatTimeDomainData', 'fftSize', 'frequencyBinCount', 'maxDecibels', 'minDecibels', 'smoothingTimeConstant']);
   class AnalyserNode extends AudioNode {
     static _() {
       dart.throw(new core.UnsupportedError("Not supported"));
@@ -137,7 +108,7 @@ dart_library.library('dart/web_audio', null, /* Imports */[
     }
   }
   dart.setSignature(AnalyserNode, {
-    constructors: () => ({_: [AnalyserNode, []]}),
+    constructors: () => ({ _: [AnalyserNode, []] }),
     methods: () => ({
       [dartx.getByteFrequencyData]: [dart.void, [typed_data.Uint8List]],
       [dartx.getByteTimeDomainData]: [dart.void, [typed_data.Uint8List]],
@@ -147,13 +118,7 @@ dart_library.library('dart/web_audio', null, /* Imports */[
   });
   AnalyserNode[dart.metadata] = () => [dart.const(new _metadata.DocsEditable()), dart.const(new _metadata.DomName('AnalyserNode')), dart.const(new _metadata.Experimental()), dart.const(new _js_helper.Native("AnalyserNode,RealtimeAnalyserNode"))];
   dart.registerExtension(dart.global.AnalyserNode, AnalyserNode);
-  dart.defineExtensionNames([
-    'getChannelData',
-    'duration',
-    'length',
-    'numberOfChannels',
-    'sampleRate'
-  ]);
+  dart.defineExtensionNames(['getChannelData', 'duration', 'length', 'numberOfChannels', 'sampleRate']);
   class AudioBuffer extends _interceptors.Interceptor {
     static _() {
       dart.throw(new core.UnsupportedError("Not supported"));
@@ -175,8 +140,8 @@ dart_library.library('dart/web_audio', null, /* Imports */[
     }
   }
   dart.setSignature(AudioBuffer, {
-    constructors: () => ({_: [AudioBuffer, []]}),
-    methods: () => ({[dartx.getChannelData]: [typed_data.Float32List, [core.int]]})
+    constructors: () => ({ _: [AudioBuffer, []] }),
+    methods: () => ({ [dartx.getChannelData]: [typed_data.Float32List, [core.int]] })
   });
   AudioBuffer[dart.metadata] = () => [dart.const(new _metadata.DocsEditable()), dart.const(new _metadata.DomName('AudioBuffer')), dart.const(new _metadata.Experimental()), dart.const(new _js_helper.Native("AudioBuffer"))];
   dart.registerExtension(dart.global.AudioBuffer, AudioBuffer);
@@ -187,20 +152,11 @@ dart_library.library('dart/web_audio', null, /* Imports */[
     }
   }
   dart.setSignature(AudioSourceNode, {
-    constructors: () => ({_: [AudioSourceNode, []]})
+    constructors: () => ({ _: [AudioSourceNode, []] })
   });
   AudioSourceNode[dart.metadata] = () => [dart.const(new _metadata.DocsEditable()), dart.const(new _metadata.DomName('AudioSourceNode')), dart.const(new _metadata.Experimental()), dart.const(new _js_helper.Native("AudioSourceNode"))];
   dart.registerExtension(dart.global.AudioSourceNode, AudioSourceNode);
-  dart.defineExtensionNames([
-    'start',
-    'stop',
-    'onEnded',
-    'buffer',
-    'loop',
-    'loopEnd',
-    'loopStart',
-    'playbackRate'
-  ]);
+  dart.defineExtensionNames(['start', 'stop', 'onEnded', 'buffer', 'loop', 'loopEnd', 'loopStart', 'playbackRate']);
   class AudioBufferSourceNode extends AudioSourceNode {
     [dartx.start](when, grainOffset, grainDuration) {
       if (grainOffset === void 0) grainOffset = null;
@@ -265,7 +221,7 @@ dart_library.library('dart/web_audio', null, /* Imports */[
     }
   }
   dart.setSignature(AudioBufferSourceNode, {
-    constructors: () => ({_: [AudioBufferSourceNode, []]}),
+    constructors: () => ({ _: [AudioBufferSourceNode, []] }),
     methods: () => ({
       [dartx.start]: [dart.void, [core.num], [core.num, core.num]],
       [dartx.stop]: [dart.void, [core.num]]
@@ -275,33 +231,7 @@ dart_library.library('dart/web_audio', null, /* Imports */[
   AudioBufferSourceNode.endedEvent = dart.const(new (html.EventStreamProvider$(html.Event))('ended'));
   dart.registerExtension(dart.global.AudioBufferSourceNode, AudioBufferSourceNode);
   const _decodeAudioData = Symbol('_decodeAudioData');
-  dart.defineExtensionNames([
-    'createAnalyser',
-    'createBiquadFilter',
-    'createBuffer',
-    'createBufferSource',
-    'createChannelMerger',
-    'createChannelSplitter',
-    'createConvolver',
-    'createDelay',
-    'createDynamicsCompressor',
-    'createMediaElementSource',
-    'createMediaStreamDestination',
-    'createMediaStreamSource',
-    'createOscillator',
-    'createPanner',
-    'createPeriodicWave',
-    'createWaveShaper',
-    'startRendering',
-    'onComplete',
-    'createGain',
-    'createScriptProcessor',
-    'decodeAudioData',
-    'currentTime',
-    'destination',
-    'listener',
-    'sampleRate'
-  ]);
+  dart.defineExtensionNames(['createAnalyser', 'createBiquadFilter', 'createBuffer', 'createBufferSource', 'createChannelMerger', 'createChannelSplitter', 'createConvolver', 'createDelay', 'createDynamicsCompressor', 'createMediaElementSource', 'createMediaStreamDestination', 'createMediaStreamSource', 'createOscillator', 'createPanner', 'createPeriodicWave', 'createWaveShaper', 'startRendering', 'onComplete', 'createGain', 'createScriptProcessor', 'decodeAudioData', 'currentTime', 'destination', 'listener', 'sampleRate']);
   class AudioContext extends html.EventTarget {
     static _() {
       dart.throw(new core.UnsupportedError("Not supported"));
@@ -446,9 +376,7 @@ dart_library.library('dart/web_audio', null, /* Imports */[
   AudioContext[dart.metadata] = () => [dart.const(new _metadata.DomName('AudioContext')), dart.const(new _metadata.SupportedBrowser(_metadata.SupportedBrowser.CHROME)), dart.const(new _metadata.SupportedBrowser(_metadata.SupportedBrowser.FIREFOX)), dart.const(new _metadata.Experimental()), dart.const(new _js_helper.Native("AudioContext,webkitAudioContext"))];
   AudioContext.completeEvent = dart.const(new (html.EventStreamProvider$(html.Event))('complete'));
   dart.registerExtension(dart.global.AudioContext, AudioContext);
-  dart.defineExtensionNames([
-    'maxChannelCount'
-  ]);
+  dart.defineExtensionNames(['maxChannelCount']);
   class AudioDestinationNode extends AudioNode {
     static _() {
       dart.throw(new core.UnsupportedError("Not supported"));
@@ -458,17 +386,11 @@ dart_library.library('dart/web_audio', null, /* Imports */[
     }
   }
   dart.setSignature(AudioDestinationNode, {
-    constructors: () => ({_: [AudioDestinationNode, []]})
+    constructors: () => ({ _: [AudioDestinationNode, []] })
   });
   AudioDestinationNode[dart.metadata] = () => [dart.const(new _metadata.DocsEditable()), dart.const(new _metadata.DomName('AudioDestinationNode')), dart.const(new _metadata.Experimental()), dart.const(new _js_helper.Native("AudioDestinationNode"))];
   dart.registerExtension(dart.global.AudioDestinationNode, AudioDestinationNode);
-  dart.defineExtensionNames([
-    'setOrientation',
-    'setPosition',
-    'setVelocity',
-    'dopplerFactor',
-    'speedOfSound'
-  ]);
+  dart.defineExtensionNames(['setOrientation', 'setPosition', 'setVelocity', 'dopplerFactor', 'speedOfSound']);
   class AudioListener extends _interceptors.Interceptor {
     static _() {
       dart.throw(new core.UnsupportedError("Not supported"));
@@ -496,7 +418,7 @@ dart_library.library('dart/web_audio', null, /* Imports */[
     }
   }
   dart.setSignature(AudioListener, {
-    constructors: () => ({_: [AudioListener, []]}),
+    constructors: () => ({ _: [AudioListener, []] }),
     methods: () => ({
       [dartx.setOrientation]: [dart.void, [core.num, core.num, core.num, core.num, core.num, core.num]],
       [dartx.setPosition]: [dart.void, [core.num, core.num, core.num]],
@@ -505,16 +427,7 @@ dart_library.library('dart/web_audio', null, /* Imports */[
   });
   AudioListener[dart.metadata] = () => [dart.const(new _metadata.DocsEditable()), dart.const(new _metadata.DomName('AudioListener')), dart.const(new _metadata.Experimental()), dart.const(new _js_helper.Native("AudioListener"))];
   dart.registerExtension(dart.global.AudioListener, AudioListener);
-  dart.defineExtensionNames([
-    'cancelScheduledValues',
-    'exponentialRampToValueAtTime',
-    'linearRampToValueAtTime',
-    'setTargetAtTime',
-    'setValueAtTime',
-    'setValueCurveAtTime',
-    'defaultValue',
-    'value'
-  ]);
+  dart.defineExtensionNames(['cancelScheduledValues', 'exponentialRampToValueAtTime', 'linearRampToValueAtTime', 'setTargetAtTime', 'setValueAtTime', 'setValueCurveAtTime', 'defaultValue', 'value']);
   class AudioParam extends _interceptors.Interceptor {
     static _() {
       dart.throw(new core.UnsupportedError("Not supported"));
@@ -548,7 +461,7 @@ dart_library.library('dart/web_audio', null, /* Imports */[
     }
   }
   dart.setSignature(AudioParam, {
-    constructors: () => ({_: [AudioParam, []]}),
+    constructors: () => ({ _: [AudioParam, []] }),
     methods: () => ({
       [dartx.cancelScheduledValues]: [dart.void, [core.num]],
       [dartx.exponentialRampToValueAtTime]: [dart.void, [core.num, core.num]],
@@ -560,11 +473,7 @@ dart_library.library('dart/web_audio', null, /* Imports */[
   });
   AudioParam[dart.metadata] = () => [dart.const(new _metadata.DocsEditable()), dart.const(new _metadata.DomName('AudioParam')), dart.const(new _metadata.Experimental()), dart.const(new _js_helper.Native("AudioParam"))];
   dart.registerExtension(dart.global.AudioParam, AudioParam);
-  dart.defineExtensionNames([
-    'inputBuffer',
-    'outputBuffer',
-    'playbackTime'
-  ]);
+  dart.defineExtensionNames(['inputBuffer', 'outputBuffer', 'playbackTime']);
   class AudioProcessingEvent extends html.Event {
     static _() {
       dart.throw(new core.UnsupportedError("Not supported"));
@@ -580,18 +489,11 @@ dart_library.library('dart/web_audio', null, /* Imports */[
     }
   }
   dart.setSignature(AudioProcessingEvent, {
-    constructors: () => ({_: [AudioProcessingEvent, []]})
+    constructors: () => ({ _: [AudioProcessingEvent, []] })
   });
   AudioProcessingEvent[dart.metadata] = () => [dart.const(new _metadata.DocsEditable()), dart.const(new _metadata.DomName('AudioProcessingEvent')), dart.const(new _metadata.Experimental()), dart.const(new _js_helper.Native("AudioProcessingEvent"))];
   dart.registerExtension(dart.global.AudioProcessingEvent, AudioProcessingEvent);
-  dart.defineExtensionNames([
-    'getFrequencyResponse',
-    'Q',
-    'detune',
-    'frequency',
-    'gain',
-    'type'
-  ]);
+  dart.defineExtensionNames(['getFrequencyResponse', 'Q', 'detune', 'frequency', 'gain', 'type']);
   class BiquadFilterNode extends AudioNode {
     static _() {
       dart.throw(new core.UnsupportedError("Not supported"));
@@ -619,8 +521,8 @@ dart_library.library('dart/web_audio', null, /* Imports */[
     }
   }
   dart.setSignature(BiquadFilterNode, {
-    constructors: () => ({_: [BiquadFilterNode, []]}),
-    methods: () => ({[dartx.getFrequencyResponse]: [dart.void, [typed_data.Float32List, typed_data.Float32List, typed_data.Float32List]]})
+    constructors: () => ({ _: [BiquadFilterNode, []] }),
+    methods: () => ({ [dartx.getFrequencyResponse]: [dart.void, [typed_data.Float32List, typed_data.Float32List, typed_data.Float32List]] })
   });
   BiquadFilterNode[dart.metadata] = () => [dart.const(new _metadata.DocsEditable()), dart.const(new _metadata.DomName('BiquadFilterNode')), dart.const(new _metadata.Experimental()), dart.const(new _js_helper.Native("BiquadFilterNode"))];
   dart.registerExtension(dart.global.BiquadFilterNode, BiquadFilterNode);
@@ -630,7 +532,7 @@ dart_library.library('dart/web_audio', null, /* Imports */[
     }
   }
   dart.setSignature(ChannelMergerNode, {
-    constructors: () => ({_: [ChannelMergerNode, []]})
+    constructors: () => ({ _: [ChannelMergerNode, []] })
   });
   ChannelMergerNode[dart.metadata] = () => [dart.const(new _metadata.DocsEditable()), dart.const(new _metadata.DomName('ChannelMergerNode')), dart.const(new _metadata.Experimental()), dart.const(new _js_helper.Native("ChannelMergerNode,AudioChannelMerger"))];
   dart.registerExtension(dart.global.ChannelMergerNode, ChannelMergerNode);
@@ -640,14 +542,11 @@ dart_library.library('dart/web_audio', null, /* Imports */[
     }
   }
   dart.setSignature(ChannelSplitterNode, {
-    constructors: () => ({_: [ChannelSplitterNode, []]})
+    constructors: () => ({ _: [ChannelSplitterNode, []] })
   });
   ChannelSplitterNode[dart.metadata] = () => [dart.const(new _metadata.DocsEditable()), dart.const(new _metadata.DomName('ChannelSplitterNode')), dart.const(new _metadata.Experimental()), dart.const(new _js_helper.Native("ChannelSplitterNode,AudioChannelSplitter"))];
   dart.registerExtension(dart.global.ChannelSplitterNode, ChannelSplitterNode);
-  dart.defineExtensionNames([
-    'buffer',
-    'normalize'
-  ]);
+  dart.defineExtensionNames(['buffer', 'normalize']);
   class ConvolverNode extends AudioNode {
     static _() {
       dart.throw(new core.UnsupportedError("Not supported"));
@@ -666,13 +565,11 @@ dart_library.library('dart/web_audio', null, /* Imports */[
     }
   }
   dart.setSignature(ConvolverNode, {
-    constructors: () => ({_: [ConvolverNode, []]})
+    constructors: () => ({ _: [ConvolverNode, []] })
   });
   ConvolverNode[dart.metadata] = () => [dart.const(new _metadata.DocsEditable()), dart.const(new _metadata.DomName('ConvolverNode')), dart.const(new _metadata.Experimental()), dart.const(new _js_helper.Native("ConvolverNode"))];
   dart.registerExtension(dart.global.ConvolverNode, ConvolverNode);
-  dart.defineExtensionNames([
-    'delayTime'
-  ]);
+  dart.defineExtensionNames(['delayTime']);
   class DelayNode extends AudioNode {
     static _() {
       dart.throw(new core.UnsupportedError("Not supported"));
@@ -682,18 +579,11 @@ dart_library.library('dart/web_audio', null, /* Imports */[
     }
   }
   dart.setSignature(DelayNode, {
-    constructors: () => ({_: [DelayNode, []]})
+    constructors: () => ({ _: [DelayNode, []] })
   });
   DelayNode[dart.metadata] = () => [dart.const(new _metadata.DocsEditable()), dart.const(new _metadata.DomName('DelayNode')), dart.const(new _metadata.Experimental()), dart.const(new _js_helper.Native("DelayNode"))];
   dart.registerExtension(dart.global.DelayNode, DelayNode);
-  dart.defineExtensionNames([
-    'attack',
-    'knee',
-    'ratio',
-    'reduction',
-    'release',
-    'threshold'
-  ]);
+  dart.defineExtensionNames(['attack', 'knee', 'ratio', 'reduction', 'release', 'threshold']);
   class DynamicsCompressorNode extends AudioNode {
     static _() {
       dart.throw(new core.UnsupportedError("Not supported"));
@@ -718,13 +608,11 @@ dart_library.library('dart/web_audio', null, /* Imports */[
     }
   }
   dart.setSignature(DynamicsCompressorNode, {
-    constructors: () => ({_: [DynamicsCompressorNode, []]})
+    constructors: () => ({ _: [DynamicsCompressorNode, []] })
   });
   DynamicsCompressorNode[dart.metadata] = () => [dart.const(new _metadata.DocsEditable()), dart.const(new _metadata.DomName('DynamicsCompressorNode')), dart.const(new _metadata.Experimental()), dart.const(new _js_helper.Native("DynamicsCompressorNode"))];
   dart.registerExtension(dart.global.DynamicsCompressorNode, DynamicsCompressorNode);
-  dart.defineExtensionNames([
-    'gain'
-  ]);
+  dart.defineExtensionNames(['gain']);
   class GainNode extends AudioNode {
     static _() {
       dart.throw(new core.UnsupportedError("Not supported"));
@@ -734,13 +622,11 @@ dart_library.library('dart/web_audio', null, /* Imports */[
     }
   }
   dart.setSignature(GainNode, {
-    constructors: () => ({_: [GainNode, []]})
+    constructors: () => ({ _: [GainNode, []] })
   });
   GainNode[dart.metadata] = () => [dart.const(new _metadata.DocsEditable()), dart.const(new _metadata.DomName('GainNode')), dart.const(new _metadata.Experimental()), dart.const(new _js_helper.Native("GainNode,AudioGainNode"))];
   dart.registerExtension(dart.global.GainNode, GainNode);
-  dart.defineExtensionNames([
-    'mediaElement'
-  ]);
+  dart.defineExtensionNames(['mediaElement']);
   class MediaElementAudioSourceNode extends AudioSourceNode {
     static _() {
       dart.throw(new core.UnsupportedError("Not supported"));
@@ -750,13 +636,11 @@ dart_library.library('dart/web_audio', null, /* Imports */[
     }
   }
   dart.setSignature(MediaElementAudioSourceNode, {
-    constructors: () => ({_: [MediaElementAudioSourceNode, []]})
+    constructors: () => ({ _: [MediaElementAudioSourceNode, []] })
   });
   MediaElementAudioSourceNode[dart.metadata] = () => [dart.const(new _metadata.DocsEditable()), dart.const(new _metadata.DomName('MediaElementAudioSourceNode')), dart.const(new _metadata.Experimental()), dart.const(new _js_helper.Native("MediaElementAudioSourceNode"))];
   dart.registerExtension(dart.global.MediaElementAudioSourceNode, MediaElementAudioSourceNode);
-  dart.defineExtensionNames([
-    'stream'
-  ]);
+  dart.defineExtensionNames(['stream']);
   class MediaStreamAudioDestinationNode extends AudioNode {
     static _() {
       dart.throw(new core.UnsupportedError("Not supported"));
@@ -766,13 +650,11 @@ dart_library.library('dart/web_audio', null, /* Imports */[
     }
   }
   dart.setSignature(MediaStreamAudioDestinationNode, {
-    constructors: () => ({_: [MediaStreamAudioDestinationNode, []]})
+    constructors: () => ({ _: [MediaStreamAudioDestinationNode, []] })
   });
   MediaStreamAudioDestinationNode[dart.metadata] = () => [dart.const(new _metadata.DocsEditable()), dart.const(new _metadata.DomName('MediaStreamAudioDestinationNode')), dart.const(new _metadata.Experimental()), dart.const(new _js_helper.Native("MediaStreamAudioDestinationNode"))];
   dart.registerExtension(dart.global.MediaStreamAudioDestinationNode, MediaStreamAudioDestinationNode);
-  dart.defineExtensionNames([
-    'mediaStream'
-  ]);
+  dart.defineExtensionNames(['mediaStream']);
   class MediaStreamAudioSourceNode extends AudioSourceNode {
     static _() {
       dart.throw(new core.UnsupportedError("Not supported"));
@@ -782,13 +664,11 @@ dart_library.library('dart/web_audio', null, /* Imports */[
     }
   }
   dart.setSignature(MediaStreamAudioSourceNode, {
-    constructors: () => ({_: [MediaStreamAudioSourceNode, []]})
+    constructors: () => ({ _: [MediaStreamAudioSourceNode, []] })
   });
   MediaStreamAudioSourceNode[dart.metadata] = () => [dart.const(new _metadata.DocsEditable()), dart.const(new _metadata.DomName('MediaStreamAudioSourceNode')), dart.const(new _metadata.Experimental()), dart.const(new _js_helper.Native("MediaStreamAudioSourceNode"))];
   dart.registerExtension(dart.global.MediaStreamAudioSourceNode, MediaStreamAudioSourceNode);
-  dart.defineExtensionNames([
-    'renderedBuffer'
-  ]);
+  dart.defineExtensionNames(['renderedBuffer']);
   class OfflineAudioCompletionEvent extends html.Event {
     static _() {
       dart.throw(new core.UnsupportedError("Not supported"));
@@ -798,7 +678,7 @@ dart_library.library('dart/web_audio', null, /* Imports */[
     }
   }
   dart.setSignature(OfflineAudioCompletionEvent, {
-    constructors: () => ({_: [OfflineAudioCompletionEvent, []]})
+    constructors: () => ({ _: [OfflineAudioCompletionEvent, []] })
   });
   OfflineAudioCompletionEvent[dart.metadata] = () => [dart.const(new _metadata.DocsEditable()), dart.const(new _metadata.DomName('OfflineAudioCompletionEvent')), dart.const(new _metadata.Experimental()), dart.const(new _js_helper.Native("OfflineAudioCompletionEvent"))];
   dart.registerExtension(dart.global.OfflineAudioCompletionEvent, OfflineAudioCompletionEvent);
@@ -818,22 +698,12 @@ dart_library.library('dart/web_audio', null, /* Imports */[
       _: [OfflineAudioContext, []],
       new: [OfflineAudioContext, [core.int, core.int, core.num]]
     }),
-    statics: () => ({_create_1: [OfflineAudioContext, [dart.dynamic, dart.dynamic, dart.dynamic]]}),
+    statics: () => ({ _create_1: [OfflineAudioContext, [dart.dynamic, dart.dynamic, dart.dynamic]] }),
     names: ['_create_1']
   });
   OfflineAudioContext[dart.metadata] = () => [dart.const(new _metadata.DocsEditable()), dart.const(new _metadata.DomName('OfflineAudioContext')), dart.const(new _metadata.Experimental()), dart.const(new _js_helper.Native("OfflineAudioContext"))];
   dart.registerExtension(dart.global.OfflineAudioContext, OfflineAudioContext);
-  dart.defineExtensionNames([
-    'noteOff',
-    'noteOn',
-    'setPeriodicWave',
-    'start',
-    'stop',
-    'onEnded',
-    'detune',
-    'frequency',
-    'type'
-  ]);
+  dart.defineExtensionNames(['noteOff', 'noteOn', 'setPeriodicWave', 'start', 'stop', 'onEnded', 'detune', 'frequency', 'type']);
   class OscillatorNode extends AudioSourceNode {
     static _() {
       dart.throw(new core.UnsupportedError("Not supported"));
@@ -870,7 +740,7 @@ dart_library.library('dart/web_audio', null, /* Imports */[
     }
   }
   dart.setSignature(OscillatorNode, {
-    constructors: () => ({_: [OscillatorNode, []]}),
+    constructors: () => ({ _: [OscillatorNode, []] }),
     methods: () => ({
       [dartx.noteOff]: [dart.void, [core.num]],
       [dartx.noteOn]: [dart.void, [core.num]],
@@ -882,19 +752,7 @@ dart_library.library('dart/web_audio', null, /* Imports */[
   OscillatorNode[dart.metadata] = () => [dart.const(new _metadata.DocsEditable()), dart.const(new _metadata.DomName('OscillatorNode')), dart.const(new _metadata.Experimental()), dart.const(new _js_helper.Native("OscillatorNode,Oscillator"))];
   OscillatorNode.endedEvent = dart.const(new (html.EventStreamProvider$(html.Event))('ended'));
   dart.registerExtension(dart.global.OscillatorNode, OscillatorNode);
-  dart.defineExtensionNames([
-    'setOrientation',
-    'setPosition',
-    'setVelocity',
-    'coneInnerAngle',
-    'coneOuterAngle',
-    'coneOuterGain',
-    'distanceModel',
-    'maxDistance',
-    'panningModel',
-    'refDistance',
-    'rolloffFactor'
-  ]);
+  dart.defineExtensionNames(['setOrientation', 'setPosition', 'setVelocity', 'coneInnerAngle', 'coneOuterAngle', 'coneOuterGain', 'distanceModel', 'maxDistance', 'panningModel', 'refDistance', 'rolloffFactor']);
   class PannerNode extends AudioNode {
     static _() {
       dart.throw(new core.UnsupportedError("Not supported"));
@@ -958,7 +816,7 @@ dart_library.library('dart/web_audio', null, /* Imports */[
     }
   }
   dart.setSignature(PannerNode, {
-    constructors: () => ({_: [PannerNode, []]}),
+    constructors: () => ({ _: [PannerNode, []] }),
     methods: () => ({
       [dartx.setOrientation]: [dart.void, [core.num, core.num, core.num]],
       [dartx.setPosition]: [dart.void, [core.num, core.num, core.num]],
@@ -973,15 +831,11 @@ dart_library.library('dart/web_audio', null, /* Imports */[
     }
   }
   dart.setSignature(PeriodicWave, {
-    constructors: () => ({_: [PeriodicWave, []]})
+    constructors: () => ({ _: [PeriodicWave, []] })
   });
   PeriodicWave[dart.metadata] = () => [dart.const(new _metadata.DocsEditable()), dart.const(new _metadata.DomName('PeriodicWave')), dart.const(new _metadata.Experimental()), dart.const(new _js_helper.Native("PeriodicWave"))];
   dart.registerExtension(dart.global.PeriodicWave, PeriodicWave);
-  dart.defineExtensionNames([
-    'setEventListener',
-    'onAudioProcess',
-    'bufferSize'
-  ]);
+  dart.defineExtensionNames(['setEventListener', 'onAudioProcess', 'bufferSize']);
   class ScriptProcessorNode extends AudioNode {
     static _() {
       dart.throw(new core.UnsupportedError("Not supported"));
@@ -997,16 +851,13 @@ dart_library.library('dart/web_audio', null, /* Imports */[
     }
   }
   dart.setSignature(ScriptProcessorNode, {
-    constructors: () => ({_: [ScriptProcessorNode, []]}),
-    methods: () => ({[dartx.setEventListener]: [dart.void, [html.EventListener]]})
+    constructors: () => ({ _: [ScriptProcessorNode, []] }),
+    methods: () => ({ [dartx.setEventListener]: [dart.void, [html.EventListener]] })
   });
   ScriptProcessorNode[dart.metadata] = () => [dart.const(new _metadata.DocsEditable()), dart.const(new _metadata.DomName('ScriptProcessorNode')), dart.const(new _metadata.Experimental()), dart.const(new _js_helper.Native("ScriptProcessorNode,JavaScriptAudioNode"))];
   ScriptProcessorNode.audioProcessEvent = dart.const(new (html.EventStreamProvider$(AudioProcessingEvent))('audioprocess'));
   dart.registerExtension(dart.global.ScriptProcessorNode, ScriptProcessorNode);
-  dart.defineExtensionNames([
-    'curve',
-    'oversample'
-  ]);
+  dart.defineExtensionNames(['curve', 'oversample']);
   class WaveShaperNode extends AudioNode {
     static _() {
       dart.throw(new core.UnsupportedError("Not supported"));
@@ -1025,7 +876,7 @@ dart_library.library('dart/web_audio', null, /* Imports */[
     }
   }
   dart.setSignature(WaveShaperNode, {
-    constructors: () => ({_: [WaveShaperNode, []]})
+    constructors: () => ({ _: [WaveShaperNode, []] })
   });
   WaveShaperNode[dart.metadata] = () => [dart.const(new _metadata.DocsEditable()), dart.const(new _metadata.DomName('WaveShaperNode')), dart.const(new _metadata.Experimental()), dart.const(new _js_helper.Native("WaveShaperNode"))];
   dart.registerExtension(dart.global.WaveShaperNode, WaveShaperNode);

@@ -1,12 +1,6 @@
-dart_library.library('dart/_runtime', null, /* Imports */[
-], /* Lazy imports */[
-  'dart/core',
-  'dart/_interceptors',
-  'dart/_js_helper',
-  'dart/async',
-  'dart/collection'
-], function(exports, core, _interceptors, _js_helper, async, collection) {
+dart_library.library('dart/_runtime', null, /* Imports */[], /* Lazy imports */['dart/core', 'dart/_interceptors', 'dart/_js_helper', 'dart/async', 'dart/collection'], function (exports, core, _interceptors, _js_helper, async, collection) {
   'use strict';
+
   function mixin(base, ...mixins) {
     class Mixin extends base {
       [base.name](...args) {
@@ -52,8 +46,7 @@ dart_library.library('dart/_runtime', null, /* Imports */[
       if (args.length != length && args.length != 0) {
         throwInternalError('requires ' + length + ' or 0 type arguments');
       }
-      while (args.length < length)
-        args.push(dynamicR);
+      while (args.length < length) args.push(dynamicR);
       let value = resultMap;
       for (let i = 0; i < length; i++) {
         let arg = args[i];
@@ -131,7 +124,7 @@ dart_library.library('dart/_runtime', null, /* Imports */[
   function _setStaticTypes(f, names) {
     for (let name of names) {
       if (!f[name]) continue;
-      tagMemoized(f[name], function() {
+      tagMemoized(f[name], function () {
         let parts = f[_staticSig][name];
         return definiteFunctionType.apply(null, parts);
       });
@@ -156,10 +149,10 @@ dart_library.library('dart/_runtime', null, /* Imports */[
     if (prop) return;
     let symbol = Symbol(subclass.name + '.' + fieldName.toString());
     defineProperty(subclass.prototype, fieldName, {
-      get: function() {
+      get: function () {
         return this[symbol];
       },
-      set: function(x) {
+      set: function (x) {
         this[symbol] = x;
       }
     });
@@ -167,11 +160,11 @@ dart_library.library('dart/_runtime', null, /* Imports */[
   function defineNamedConstructor(clazz, name) {
     let proto = clazz.prototype;
     let initMethod = proto[name];
-    let ctor = function() {
+    let ctor = function () {
       return initMethod.apply(this, arguments);
     };
     ctor.prototype = proto;
-    defineProperty(clazz, name, {value: ctor, configurable: true});
+    defineProperty(clazz, name, { value: ctor, configurable: true });
   }
   const _extensionType = Symbol("extensionType");
   function getExtensionType(obj) {
@@ -210,7 +203,7 @@ dart_library.library('dart/_runtime', null, /* Imports */[
       defineProperty(proto, getExtensionSymbol(name), method);
     }
     let originalSigFn = getOwnPropertyDescriptor(type, _methodSig).get;
-    defineMemoizedGetter(type, _methodSig, function() {
+    defineMemoizedGetter(type, _methodSig, function () {
       let sig = originalSigFn();
       for (let name of methodNames) {
         sig[getExtensionSymbol(name)] = sig[name];
@@ -266,9 +259,9 @@ dart_library.library('dart/_runtime', null, /* Imports */[
       if (!instanceOf(future, getGenericClass(async.Future))) {
         future = async.Future.value(future);
       }
-      return future.then(onValue, {onError: onError});
+      return future.then(onValue, { onError: onError });
     }
-    return getGenericClass(async.Future)(T).new(function() {
+    return getGenericClass(async.Future)(T).new(function () {
       iter = gen(...args)[Symbol.iterator]();
       return onValue();
     });
@@ -352,7 +345,7 @@ dart_library.library('dart/_runtime', null, /* Imports */[
     addStream(stream) {
       if (!this.controller.hasListener) return true;
       this.isAdding = true;
-      this.controller.addStream(stream, {cancelOnError: false}).then(() => {
+      this.controller.addStream(stream, { cancelOnError: false }).then(() => {
         this.isAdding = false;
         this.scheduleGenerator();
       }, {
@@ -365,7 +358,6 @@ dart_library.library('dart/_runtime', null, /* Imports */[
       } catch (e) {
         this.addError(e, stackTrace);
       }
-
     }
     addError(error, stackTrace) {
       if (this.canceler != null && !this.canceler.isCompleted) {
@@ -517,7 +509,7 @@ dart_library.library('dart/_runtime', null, /* Imports */[
     return obj;
   }
   function arity(f) {
-    return {min: f.length, max: f.length};
+    return { min: f.length, max: f.length };
   }
   function equals(x, y) {
     if (x == null || y == null) return x == y;
@@ -609,13 +601,13 @@ dart_library.library('dart/_runtime', null, /* Imports */[
     switch (typeof obj) {
       case "number":
       case "boolean":
-      {
-        return obj & 0x1FFFFFFF;
-      }
+        {
+          return obj & 0x1FFFFFFF;
+        }
       case "string":
-      {
-        return obj.length;
-      }
+        {
+          return obj.length;
+        }
     }
     return obj.hashCode;
   }
@@ -633,9 +625,9 @@ dart_library.library('dart/_runtime', null, /* Imports */[
       case "number":
       case "boolean":
       case "string":
-      {
-        throwNoSuchMethod(obj, invocation.memberName, invocation.positionalArguments, invocation.namedArguments);
-      }
+        {
+          throwNoSuchMethod(obj, invocation.memberName, invocation.positionalArguments, invocation.namedArguments);
+        }
     }
     return obj.noSuchMethod(invocation);
   }
@@ -646,12 +638,12 @@ dart_library.library('dart/_runtime', null, /* Imports */[
     next() {
       let i = this.dartIterator;
       let done = !i.moveNext();
-      return {done: done, value: done ? void 0 : i.current};
+      return { done: done, value: done ? void 0 : i.current };
     }
   }
   function fn(closure, ...args) {
     if (args.length == 1) {
-      defineLazyProperty(closure, _runtimeType, {get: args[0]});
+      defineLazyProperty(closure, _runtimeType, { get: args[0] });
       return closure;
     }
     let t;
@@ -667,25 +659,25 @@ dart_library.library('dart/_runtime', null, /* Imports */[
   function checkPrimitiveType(obj) {
     switch (typeof obj) {
       case "undefined":
-      {
-        return core.Null;
-      }
+        {
+          return core.Null;
+        }
       case "number":
-      {
-        return Math.floor(obj) == obj ? core.int : core.double;
-      }
+        {
+          return Math.floor(obj) == obj ? core.int : core.double;
+        }
       case "boolean":
-      {
-        return core.bool;
-      }
+        {
+          return core.bool;
+        }
       case "string":
-      {
-        return core.String;
-      }
+        {
+          return core.String;
+        }
       case "symbol":
-      {
-        return Symbol;
-      }
+        {
+          return Symbol;
+        }
     }
     if (obj === null) return core.Null;
     return null;
@@ -732,7 +724,7 @@ dart_library.library('dart/_runtime', null, /* Imports */[
     value[_runtimeType] = info;
   }
   function tagComputed(value, compute) {
-    defineProperty(value, _runtimeType, {get: compute});
+    defineProperty(value, _runtimeType, { get: compute });
   }
   function tagMemoized(value, compute) {
     let cache = null;
@@ -1117,7 +1109,7 @@ dart_library.library('dart/_runtime', null, /* Imports */[
   const getOwnPropertyNames = Object.getOwnPropertyNames;
   const getOwnPropertySymbols = Object.getOwnPropertySymbols;
   const hasOwnProperty = Object.prototype.hasOwnProperty;
-  const StrongModeError = (function() {
+  const StrongModeError = function () {
     function StrongModeError(message) {
       Error.call(this);
       this.message = message;
@@ -1125,7 +1117,7 @@ dart_library.library('dart/_runtime', null, /* Imports */[
     ;
     Object.setPrototypeOf(StrongModeError.prototype, Error.prototype);
     return StrongModeError;
-  })();
+  }();
   function throwStrongModeError(message) {
     throw new StrongModeError(message);
   }
@@ -1167,7 +1159,7 @@ dart_library.library('dart/_runtime', null, /* Imports */[
     }
   }
   function defineMemoizedGetter(obj, name, getter) {
-    return defineLazyProperty(obj, name, {get: getter});
+    return defineLazyProperty(obj, name, { get: getter });
   }
   function copyTheseProperties(to, from, names) {
     for (let name of names) {

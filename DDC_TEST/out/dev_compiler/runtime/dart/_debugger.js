@@ -1,9 +1,6 @@
-dart_library.library('dart/_debugger', null, /* Imports */[
-  'dart/_runtime',
-  'dart/core'
-], /* Lazy imports */[
-], function(exports, dart, core) {
+dart_library.library('dart/_debugger', null, /* Imports */['dart/_runtime', 'dart/core'], /* Lazy imports */[], function (exports, dart, core) {
   'use strict';
+
   let dartx = dart.dartx;
   const skipDartConfig = dart.const(new core.Object());
   exports.maxIterableChildrenToDisplay = 50;
@@ -75,7 +72,6 @@ dart_library.library('dart/_debugger', null, /* Imports */[
     } catch (e) {
       return '<Exception thrown>';
     }
-
   }
   dart.fn(safePreview, core.String, [dart.dynamic]);
   function symbolName(symbol) {
@@ -90,7 +86,6 @@ dart_library.library('dart/_debugger', null, /* Imports */[
     } catch (e) {
       return false;
     }
-
   }
   dart.fn(hasMethod, core.bool, [dart.dynamic, core.String]);
   class NameValuePair extends core.Object {
@@ -104,7 +99,7 @@ dart_library.library('dart/_debugger', null, /* Imports */[
     }
   }
   dart.setSignature(NameValuePair, {
-    constructors: () => ({NameValuePair: [NameValuePair, [], {name: core.String, value: core.Object, skipDart: core.bool}]})
+    constructors: () => ({ NameValuePair: [NameValuePair, [], { name: core.String, value: core.Object, skipDart: core.bool }] })
   });
   class MapEntry extends core.Object {
     MapEntry(opts) {
@@ -115,7 +110,7 @@ dart_library.library('dart/_debugger', null, /* Imports */[
     }
   }
   dart.setSignature(MapEntry, {
-    constructors: () => ({MapEntry: [MapEntry, [], {key: core.String, value: core.Object}]})
+    constructors: () => ({ MapEntry: [MapEntry, [], { key: core.String, value: core.Object }] })
   });
   class ClassMetadata extends core.Object {
     ClassMetadata(object) {
@@ -123,7 +118,7 @@ dart_library.library('dart/_debugger', null, /* Imports */[
     }
   }
   dart.setSignature(ClassMetadata, {
-    constructors: () => ({ClassMetadata: [ClassMetadata, [core.Object]]})
+    constructors: () => ({ ClassMetadata: [ClassMetadata, [core.Object]] })
   });
   class HeritageClause extends core.Object {
     HeritageClause(name, types) {
@@ -132,7 +127,7 @@ dart_library.library('dart/_debugger', null, /* Imports */[
     }
   }
   dart.setSignature(HeritageClause, {
-    constructors: () => ({HeritageClause: [HeritageClause, [core.String, core.List]]})
+    constructors: () => ({ HeritageClause: [HeritageClause, [core.String, core.List]] })
   });
   const _attributes = Symbol('_attributes');
   const _jsonML = Symbol('_jsonML');
@@ -180,7 +175,7 @@ dart_library.library('dart/_debugger', null, /* Imports */[
     }
   }
   dart.setSignature(JsonMLElement, {
-    constructors: () => ({JsonMLElement: [JsonMLElement, [dart.dynamic]]}),
+    constructors: () => ({ JsonMLElement: [JsonMLElement, [dart.dynamic]] }),
     methods: () => ({
       appendChild: [dart.dynamic, [dart.dynamic]],
       createChild: [JsonMLElement, [core.String]],
@@ -238,7 +233,7 @@ dart_library.library('dart/_debugger', null, /* Imports */[
     }
   }
   dart.setSignature(JsonMLFormatter, {
-    constructors: () => ({JsonMLFormatter: [JsonMLFormatter, [DartFormatter]]}),
+    constructors: () => ({ JsonMLFormatter: [JsonMLFormatter, [DartFormatter]] }),
     methods: () => ({
       header: [dart.dynamic, [dart.dynamic, dart.dynamic]],
       hasBody: [core.bool, [dart.dynamic]],
@@ -255,7 +250,7 @@ dart_library.library('dart/_debugger', null, /* Imports */[
     preview(object) {
       if (object == null) return 'null';
       if (typeof object == 'number') return dart.toString(object);
-      if (typeof object == 'string') return `"${object}"`;
+      if (typeof object == 'string') return `"${ object }"`;
       for (let formatter of this[_formatters]) {
         if (dart.notNull(formatter.accept(object))) return formatter.preview(object);
       }
@@ -278,7 +273,7 @@ dart_library.library('dart/_debugger', null, /* Imports */[
     }
   }
   dart.setSignature(DartFormatter, {
-    constructors: () => ({DartFormatter: [DartFormatter, []]}),
+    constructors: () => ({ DartFormatter: [DartFormatter, []] }),
     methods: () => ({
       preview: [core.String, [dart.dynamic]],
       hasChildren: [core.bool, [dart.dynamic]],
@@ -310,7 +305,7 @@ dart_library.library('dart/_debugger', null, /* Imports */[
           value = '<Exception thrown>';
         }
 
-        properties[dartx.add](new NameValuePair({name: name, value: value}));
+        properties[dartx.add](new NameValuePair({ name: name, value: value }));
       }
       for (let symbol of getOwnPropertySymbols(current)) {
         let dartName = symbolName(symbol);
@@ -324,7 +319,7 @@ dart_library.library('dart/_debugger', null, /* Imports */[
           value = '<Exception thrown>';
         }
 
-        properties[dartx.add](new NameValuePair({name: dartName, value: value}));
+        properties[dartx.add](new NameValuePair({ name: dartName, value: value }));
       }
       let base = JSNative.getProperty(current, '__proto__');
       if (base == null) return;
@@ -339,7 +334,7 @@ dart_library.library('dart/_debugger', null, /* Imports */[
       return properties;
     }
     addMetadataChildren(object, ret) {
-      ret[dartx.add](new NameValuePair({name: '[[class]]', value: new ClassMetadata(object)}));
+      ret[dartx.add](new NameValuePair({ name: '[[class]]', value: new ClassMetadata(object) }));
     }
   }
   dart.setSignature(ObjectFormatter, {
@@ -364,7 +359,7 @@ dart_library.library('dart/_debugger', null, /* Imports */[
       return dart.as(dart.typeName(dart.realRuntimeType(object)), core.String);
     }
     children(object) {
-      return dart.list([new NameValuePair({name: 'signature', value: this.preview(object)}), new NameValuePair({name: 'JavaScript Function', value: object, skipDart: true})], NameValuePair);
+      return dart.list([new NameValuePair({ name: 'signature', value: this.preview(object) }), new NameValuePair({ name: 'JavaScript Function', value: object, skipDart: true })], NameValuePair);
     }
   }
   dart.setSignature(FunctionFormatter, {
@@ -384,15 +379,15 @@ dart_library.library('dart/_debugger', null, /* Imports */[
     }
     preview(object) {
       let map = dart.as(object, core.Map);
-      return `${getObjectTypeName(map)} length ${map[dartx.length]}`;
+      return `${ getObjectTypeName(map) } length ${ map[dartx.length] }`;
     }
     children(object) {
       let map = dart.as(object, core.Map);
       let keys = map[dartx.keys][dartx.toList]();
       let entries = dart.list([], NameValuePair);
       map[dartx.forEach](dart.fn((key, value) => {
-        let entryWrapper = new MapEntry({key: dart.as(key, core.String), value: value});
-        entries[dartx.add](new NameValuePair({name: dart.toString(entries[dartx.length]), value: entryWrapper}));
+        let entryWrapper = new MapEntry({ key: dart.as(key, core.String), value: value });
+        entries[dartx.add](new NameValuePair({ name: dart.toString(entries[dartx.length]), value: entryWrapper }));
       }, dart.void, [dart.dynamic, dart.dynamic]));
       this.addMetadataChildren(object, entries);
       return entries;
@@ -406,11 +401,10 @@ dart_library.library('dart/_debugger', null, /* Imports */[
       let iterable = dart.as(object, core.Iterable);
       try {
         let length = iterable[dartx.length];
-        return `${getObjectTypeName(iterable)} length ${length}`;
+        return `${ getObjectTypeName(iterable) } length ${ length }`;
       } catch (_) {
-        return `${getObjectTypeName(iterable)}`;
+        return `${ getObjectTypeName(iterable) }`;
       }
-
     }
     hasChildren(object) {
       return true;
@@ -421,10 +415,10 @@ dart_library.library('dart/_debugger', null, /* Imports */[
       let i = 0;
       for (let entry of iterable) {
         if (i > dart.notNull(exports.maxIterableChildrenToDisplay)) {
-          ret[dartx.add](new NameValuePair({name: 'Warning', value: 'Truncated Iterable display'}));
+          ret[dartx.add](new NameValuePair({ name: 'Warning', value: 'Truncated Iterable display' }));
           break;
         }
-        ret[dartx.add](new NameValuePair({name: dart.toString(i), value: entry}));
+        ret[dartx.add](new NameValuePair({ name: dart.toString(i), value: entry }));
         i++;
       }
       this.addMetadataChildren(object, ret);
@@ -453,15 +447,15 @@ dart_library.library('dart/_debugger', null, /* Imports */[
       let ret = dart.list([], NameValuePair);
       let implements$ = dart.getImplements(type);
       if (implements$ != null) {
-        ret[dartx.add](new NameValuePair({name: '[[Implements]]', value: new HeritageClause('implements', dart.as(dart.dcall(implements$), core.List))}));
+        ret[dartx.add](new NameValuePair({ name: '[[Implements]]', value: new HeritageClause('implements', dart.as(dart.dcall(implements$), core.List)) }));
       }
       let mixins = dart.getMixins(type);
       if (mixins != null) {
-        ret[dartx.add](new NameValuePair({name: '[[Mixins]]', value: new HeritageClause('mixins', dart.as(dart.dcall(mixins), core.List))}));
+        ret[dartx.add](new NameValuePair({ name: '[[Mixins]]', value: new HeritageClause('mixins', dart.as(dart.dcall(mixins), core.List)) }));
       }
-      ret[dartx.add](new NameValuePair({name: '[[JavaScript View]]', value: entry.object, skipDart: true}));
+      ret[dartx.add](new NameValuePair({ name: '[[JavaScript View]]', value: entry.object, skipDart: true }));
       if (!dart.is(entry.object, core.Type)) {
-        ret[dartx.add](new NameValuePair({name: '[[JavaScript Constructor]]', value: JSNative.getProperty(entry.object, 'constructor'), skipDart: true}));
+        ret[dartx.add](new NameValuePair({ name: '[[JavaScript Constructor]]', value: JSNative.getProperty(entry.object, 'constructor'), skipDart: true }));
       }
       return ret;
     }
@@ -482,13 +476,13 @@ dart_library.library('dart/_debugger', null, /* Imports */[
     }
     preview(object) {
       let entry = dart.as(object, MapEntry);
-      return `${safePreview(entry.key)} => ${safePreview(entry.value)}`;
+      return `${ safePreview(entry.key) } => ${ safePreview(entry.value) }`;
     }
     hasChildren(object) {
       return true;
     }
     children(object) {
-      return dart.list([new NameValuePair({name: 'key', value: dart.dload(object, 'key')}), new NameValuePair({name: 'value', value: dart.dload(object, 'value')})], NameValuePair);
+      return dart.list([new NameValuePair({ name: 'key', value: dart.dload(object, 'key') }), new NameValuePair({ name: 'value', value: dart.dload(object, 'value') })], NameValuePair);
     }
   }
   MapEntryFormatter[dart.implements] = () => [Formatter];
@@ -507,7 +501,7 @@ dart_library.library('dart/_debugger', null, /* Imports */[
     preview(object) {
       let clause = dart.as(object, HeritageClause);
       let typeNames = clause.types[dartx.map](dart.fn(type => getTypeName(dart.as(type, core.Type)), core.String, [dart.dynamic]));
-      return `${clause.name} ${typeNames[dartx.join](", ")}`;
+      return `${ clause.name } ${ typeNames[dartx.join](", ") }`;
     }
     hasChildren(object) {
       return true;
@@ -516,7 +510,7 @@ dart_library.library('dart/_debugger', null, /* Imports */[
       let clause = dart.as(object, HeritageClause);
       let ret = dart.list([], NameValuePair);
       for (let type of clause.types) {
-        ret[dartx.add](new NameValuePair({value: new ClassMetadata(type)}));
+        ret[dartx.add](new NameValuePair({ value: new ClassMetadata(type) }));
       }
       return ret;
     }

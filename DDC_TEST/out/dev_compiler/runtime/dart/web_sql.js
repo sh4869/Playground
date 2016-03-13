@@ -1,26 +1,12 @@
-dart_library.library('dart/web_sql', null, /* Imports */[
-  'dart/_runtime',
-  'dart/_interceptors',
-  'dart/core',
-  'dart/html',
-  'dart/_metadata',
-  'dart/_js_helper',
-  'dart/collection',
-  'dart/html_common'
-], /* Lazy imports */[
-], function(exports, dart, _interceptors, core, html, _metadata, _js_helper, collection, html_common) {
+dart_library.library('dart/web_sql', null, /* Imports */['dart/_runtime', 'dart/_interceptors', 'dart/core', 'dart/html', 'dart/_metadata', 'dart/_js_helper', 'dart/collection', 'dart/html_common'], /* Lazy imports */[], function (exports, dart, _interceptors, core, html, _metadata, _js_helper, collection, html_common) {
   'use strict';
+
   let dartx = dart.dartx;
   const SqlStatementCallback = dart.typedef('SqlStatementCallback', () => dart.functionType(dart.void, [SqlTransaction, SqlResultSet]));
   const SqlStatementErrorCallback = dart.typedef('SqlStatementErrorCallback', () => dart.functionType(dart.void, [SqlTransaction, SqlError]));
   const SqlTransactionCallback = dart.typedef('SqlTransactionCallback', () => dart.functionType(dart.void, [SqlTransaction]));
   const SqlTransactionErrorCallback = dart.typedef('SqlTransactionErrorCallback', () => dart.functionType(dart.void, [SqlError]));
-  dart.defineExtensionNames([
-    'changeVersion',
-    'readTransaction',
-    'transaction',
-    'version'
-  ]);
+  dart.defineExtensionNames(['changeVersion', 'readTransaction', 'transaction', 'version']);
   class SqlDatabase extends _interceptors.Interceptor {
     static _() {
       dart.throw(new core.UnsupportedError("Not supported"));
@@ -42,7 +28,7 @@ dart_library.library('dart/web_sql', null, /* Imports */[
     }
   }
   dart.setSignature(SqlDatabase, {
-    constructors: () => ({_: [SqlDatabase, []]}),
+    constructors: () => ({ _: [SqlDatabase, []] }),
     methods: () => ({
       [dartx.changeVersion]: [dart.void, [core.String, core.String], [SqlTransactionCallback, SqlTransactionErrorCallback, html.VoidCallback]],
       [dartx.readTransaction]: [dart.void, [SqlTransactionCallback], [SqlTransactionErrorCallback, html.VoidCallback]],
@@ -51,10 +37,7 @@ dart_library.library('dart/web_sql', null, /* Imports */[
   });
   SqlDatabase[dart.metadata] = () => [dart.const(new _metadata.DocsEditable()), dart.const(new _metadata.DomName('Database')), dart.const(new _metadata.SupportedBrowser(_metadata.SupportedBrowser.CHROME)), dart.const(new _metadata.SupportedBrowser(_metadata.SupportedBrowser.SAFARI)), dart.const(new _metadata.Experimental()), dart.const(new _metadata.Experimental()), dart.const(new _js_helper.Native("Database"))];
   dart.registerExtension(dart.global.Database, SqlDatabase);
-  dart.defineExtensionNames([
-    'code',
-    'message'
-  ]);
+  dart.defineExtensionNames(['code', 'message']);
   class SqlError extends _interceptors.Interceptor {
     static _() {
       dart.throw(new core.UnsupportedError("Not supported"));
@@ -67,7 +50,7 @@ dart_library.library('dart/web_sql', null, /* Imports */[
     }
   }
   dart.setSignature(SqlError, {
-    constructors: () => ({_: [SqlError, []]})
+    constructors: () => ({ _: [SqlError, []] })
   });
   SqlError[dart.metadata] = () => [dart.const(new _metadata.DocsEditable()), dart.const(new _metadata.DomName('SQLError')), dart.const(new _metadata.Experimental()), dart.const(new _js_helper.Native("SQLError"))];
   SqlError.CONSTRAINT_ERR = 6;
@@ -79,11 +62,7 @@ dart_library.library('dart/web_sql', null, /* Imports */[
   SqlError.UNKNOWN_ERR = 0;
   SqlError.VERSION_ERR = 2;
   dart.registerExtension(dart.global.SQLError, SqlError);
-  dart.defineExtensionNames([
-    'insertId',
-    'rows',
-    'rowsAffected'
-  ]);
+  dart.defineExtensionNames(['insertId', 'rows', 'rowsAffected']);
   class SqlResultSet extends _interceptors.Interceptor {
     static _() {
       dart.throw(new core.UnsupportedError("Not supported"));
@@ -99,22 +78,12 @@ dart_library.library('dart/web_sql', null, /* Imports */[
     }
   }
   dart.setSignature(SqlResultSet, {
-    constructors: () => ({_: [SqlResultSet, []]})
+    constructors: () => ({ _: [SqlResultSet, []] })
   });
   SqlResultSet[dart.metadata] = () => [dart.const(new _metadata.DocsEditable()), dart.const(new _metadata.DomName('SQLResultSet')), dart.const(new _metadata.Experimental()), dart.const(new _js_helper.Native("SQLResultSet"))];
   dart.registerExtension(dart.global.SQLResultSet, SqlResultSet);
   const _item_1 = Symbol('_item_1');
-  dart.defineExtensionNames([
-    'length',
-    'get',
-    'set',
-    'length',
-    'first',
-    'last',
-    'single',
-    'elementAt',
-    'item'
-  ]);
+  dart.defineExtensionNames(['length', 'get', 'set', 'length', 'first', 'last', 'single', 'elementAt', 'item']);
   class SqlResultSetRowList extends dart.mixin(_interceptors.Interceptor, collection.ListMixin$(core.Map), html.ImmutableListMixin$(core.Map)) {
     static _() {
       dart.throw(new core.UnsupportedError("Not supported"));
@@ -166,7 +135,7 @@ dart_library.library('dart/web_sql', null, /* Imports */[
   }
   SqlResultSetRowList[dart.implements] = () => [core.List$(core.Map)];
   dart.setSignature(SqlResultSetRowList, {
-    constructors: () => ({_: [SqlResultSetRowList, []]}),
+    constructors: () => ({ _: [SqlResultSetRowList, []] }),
     methods: () => ({
       [dartx.get]: [core.Map, [core.int]],
       [dartx.set]: [dart.void, [core.int, core.Map]],
@@ -177,9 +146,7 @@ dart_library.library('dart/web_sql', null, /* Imports */[
   });
   SqlResultSetRowList[dart.metadata] = () => [dart.const(new _metadata.DocsEditable()), dart.const(new _metadata.DomName('SQLResultSetRowList')), dart.const(new _metadata.Experimental()), dart.const(new _js_helper.Native("SQLResultSetRowList"))];
   dart.registerExtension(dart.global.SQLResultSetRowList, SqlResultSetRowList);
-  dart.defineExtensionNames([
-    'executeSql'
-  ]);
+  dart.defineExtensionNames(['executeSql']);
   class SqlTransaction extends _interceptors.Interceptor {
     static _() {
       dart.throw(new core.UnsupportedError("Not supported"));
@@ -189,8 +156,8 @@ dart_library.library('dart/web_sql', null, /* Imports */[
     }
   }
   dart.setSignature(SqlTransaction, {
-    constructors: () => ({_: [SqlTransaction, []]}),
-    methods: () => ({[dartx.executeSql]: [dart.void, [core.String, core.List$(core.Object)], [SqlStatementCallback, SqlStatementErrorCallback]]})
+    constructors: () => ({ _: [SqlTransaction, []] }),
+    methods: () => ({ [dartx.executeSql]: [dart.void, [core.String, core.List$(core.Object)], [SqlStatementCallback, SqlStatementErrorCallback]] })
   });
   SqlTransaction[dart.metadata] = () => [dart.const(new _metadata.DocsEditable()), dart.const(new _metadata.DomName('SQLTransaction')), dart.const(new _metadata.SupportedBrowser(_metadata.SupportedBrowser.CHROME)), dart.const(new _metadata.SupportedBrowser(_metadata.SupportedBrowser.SAFARI)), dart.const(new _metadata.Experimental()), core.deprecated, dart.const(new _js_helper.Native("SQLTransaction"))];
   dart.registerExtension(dart.global.SQLTransaction, SqlTransaction);

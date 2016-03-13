@@ -1,11 +1,6 @@
-dart_library.library('dart/js', null, /* Imports */[
-  'dart/_runtime',
-  'dart/core',
-  'dart/collection',
-  'dart/_js_helper'
-], /* Lazy imports */[
-], function(exports, dart, core, collection, _js_helper) {
+dart_library.library('dart/js', null, /* Imports */['dart/_runtime', 'dart/core', 'dart/collection', 'dart/_js_helper'], /* Lazy imports */[], function (exports, dart, core, collection, _js_helper) {
   'use strict';
+
   let dartx = dart.dartx;
   const _global = dart.global;
   dart.defineLazyProperties(exports, {
@@ -105,7 +100,6 @@ dart_library.library('dart/js', null, /* Imports */[
       } catch (e) {
         return super.toString();
       }
-
     }
     callMethod(method, args) {
       if (args === void 0) args = null;
@@ -136,12 +130,12 @@ dart_library.library('dart/js', null, /* Imports */[
       instanceof: [core.bool, [JsFunction]],
       callMethod: [dart.dynamic, [dart.dynamic], [core.List]]
     }),
-    statics: () => ({_convertDataTree: [dart.dynamic, [dart.dynamic]]}),
+    statics: () => ({ _convertDataTree: [dart.dynamic, [dart.dynamic]] }),
     names: ['_convertDataTree']
   });
   class JsFunction extends JsObject {
     static withThis(f) {
-      return new JsFunction._fromJs(function() {
+      return new JsFunction._fromJs(function () {
         let args = [_convertToDart(this)];
         for (let arg of arguments) {
           args.push(_convertToDart(arg));
@@ -163,11 +157,11 @@ dart_library.library('dart/js', null, /* Imports */[
       withThis: [JsFunction, [core.Function]],
       _fromJs: [JsFunction, [dart.dynamic]]
     }),
-    methods: () => ({apply: [dart.dynamic, [core.List], {thisArg: dart.dynamic}]})
+    methods: () => ({ apply: [dart.dynamic, [core.List], { thisArg: dart.dynamic }] })
   });
   const _checkIndex = Symbol('_checkIndex');
   const _checkInsertIndex = Symbol('_checkInsertIndex');
-  const JsArray$ = dart.generic(function(E) {
+  const JsArray$ = dart.generic(function (E) {
     class JsArray extends dart.mixin(JsObject, collection.ListMixin$(E)) {
       JsArray() {
         super._fromJs([]);
@@ -288,23 +282,10 @@ dart_library.library('dart/js', null, /* Imports */[
         setRange: [dart.void, [core.int, core.int, core.Iterable$(E)], [core.int]],
         sort: [dart.void, [], [dart.functionType(core.int, [E, E])]]
       }),
-      statics: () => ({_checkRange: [dart.dynamic, [core.int, core.int, core.int]]}),
+      statics: () => ({ _checkRange: [dart.dynamic, [core.int, core.int, core.int]] }),
       names: ['_checkRange']
     });
-    dart.defineExtensionMembers(JsArray, [
-      'get',
-      'set',
-      'add',
-      'addAll',
-      'insert',
-      'removeAt',
-      'removeLast',
-      'removeRange',
-      'setRange',
-      'sort',
-      'length',
-      'length'
-    ]);
+    dart.defineExtensionMembers(JsArray, ['get', 'set', 'add', 'addAll', 'insert', 'removeAt', 'removeLast', 'removeRange', 'setRange', 'sort', 'length', 'length']);
     return JsArray;
   });
   let JsArray = JsArray$();
@@ -319,7 +300,7 @@ dart_library.library('dart/js', null, /* Imports */[
     }
   }
   dart.setSignature(_DartObject, {
-    constructors: () => ({_DartObject: [_DartObject, [dart.dynamic]]})
+    constructors: () => ({ _DartObject: [_DartObject, [dart.dynamic]] })
   });
   function _convertToJS(o) {
     if (o == null || typeof o == 'string' || typeof o == 'number' || typeof o == 'boolean' || dart.notNull(_isBrowserType(o))) {
@@ -336,7 +317,7 @@ dart_library.library('dart/js', null, /* Imports */[
   }
   dart.fn(_convertToJS);
   function _wrapDartFunction(f) {
-    let wrapper = function() {
+    let wrapper = function () {
       let args = Array.prototype.map.call(arguments, _convertToDart);
       return _convertToJS(f(...args));
     };
@@ -391,7 +372,7 @@ dart_library.library('dart/js', null, /* Imports */[
   function allowInteropCaptureThis(f) {
     let ret = exports._interopCaptureThisExpando.get(f);
     if (ret == null) {
-      ret = dart.as(function() {
+      ret = dart.as(function () {
         let args = [this];
         for (let arg of arguments) {
           args.push(arg);

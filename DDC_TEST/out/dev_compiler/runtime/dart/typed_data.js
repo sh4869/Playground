@@ -1,10 +1,6 @@
-dart_library.library('dart/typed_data', null, /* Imports */[
-  'dart/_runtime',
-  'dart/core'
-], /* Lazy imports */[
-  'dart/_native_typed_data'
-], function(exports, dart, core, _native_typed_data) {
+dart_library.library('dart/typed_data', null, /* Imports */['dart/_runtime', 'dart/core'], /* Lazy imports */['dart/_native_typed_data'], function (exports, dart, core, _native_typed_data) {
   'use strict';
+
   let dartx = dart.dartx;
   class ByteBuffer extends core.Object {}
   class TypedData extends core.Object {}
@@ -16,7 +12,7 @@ dart_library.library('dart/typed_data', null, /* Imports */[
   }
   dart.defineNamedConstructor(Endianness, '_');
   dart.setSignature(Endianness, {
-    constructors: () => ({_: [Endianness, [core.bool]]})
+    constructors: () => ({ _: [Endianness, [core.bool]] })
   });
   dart.defineLazyProperties(Endianness, {
     get BIG_ENDIAN() {

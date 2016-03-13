@@ -1,18 +1,6 @@
-dart_library.library('dart/html_common', null, /* Imports */[
-  'dart/_runtime',
-  'dart/_metadata',
-  'dart/core',
-  'dart/html',
-  'dart/typed_data',
-  'dart/_js_helper',
-  'dart/_native_typed_data',
-  'dart/async',
-  'dart/collection',
-  'dart/_internal'
-], /* Lazy imports */[
-  'dart/web_gl'
-], function(exports, dart, _metadata, core, html, typed_data, _js_helper, _native_typed_data, async, collection, _internal, web_gl) {
+dart_library.library('dart/html_common', null, /* Imports */['dart/_runtime', 'dart/_metadata', 'dart/core', 'dart/html', 'dart/typed_data', 'dart/_js_helper', 'dart/_native_typed_data', 'dart/async', 'dart/collection', 'dart/_internal'], /* Lazy imports */['dart/web_gl'], function (exports, dart, _metadata, core, html, typed_data, _js_helper, _native_typed_data, async, collection, _internal, web_gl) {
   'use strict';
+
   let dartx = dart.dartx;
   dart.export(exports, _metadata);
   const _validateToken = Symbol('_validateToken');
@@ -147,7 +135,7 @@ dart_library.library('dart/html_common', null, /* Imports */[
     }
     toList(opts) {
       let growable = opts && 'growable' in opts ? opts.growable : true;
-      return this.readClasses().toList({growable: growable});
+      return this.readClasses().toList({ growable: growable });
     }
     toSet() {
       return this.readClasses().toSet();
@@ -166,11 +154,11 @@ dart_library.library('dart/html_common', null, /* Imports */[
     }
     firstWhere(test, opts) {
       let orElse = opts && 'orElse' in opts ? opts.orElse : null;
-      return this.readClasses().firstWhere(test, {orElse: orElse});
+      return this.readClasses().firstWhere(test, { orElse: orElse });
     }
     lastWhere(test, opts) {
       let orElse = opts && 'orElse' in opts ? opts.orElse : null;
-      return this.readClasses().lastWhere(test, {orElse: orElse});
+      return this.readClasses().lastWhere(test, { orElse: orElse });
     }
     singleWhere(test) {
       return this.readClasses().singleWhere(test);
@@ -216,49 +204,21 @@ dart_library.library('dart/html_common', null, /* Imports */[
       intersection: [core.Set$(core.String), [core.Set$(core.Object)]],
       union: [core.Set$(core.String), [core.Set$(core.String)]],
       difference: [core.Set$(core.String), [core.Set$(core.String)]],
-      toList: [core.List$(core.String), [], {growable: core.bool}],
+      toList: [core.List$(core.String), [], { growable: core.bool }],
       toSet: [core.Set$(core.String), []],
       take: [core.Iterable$(core.String), [core.int]],
       takeWhile: [core.Iterable$(core.String), [dart.functionType(core.bool, [core.String])]],
       skip: [core.Iterable$(core.String), [core.int]],
       skipWhile: [core.Iterable$(core.String), [dart.functionType(core.bool, [core.String])]],
-      firstWhere: [core.String, [dart.functionType(core.bool, [core.String])], {orElse: dart.functionType(core.String, [])}],
-      lastWhere: [core.String, [dart.functionType(core.bool, [core.String])], {orElse: dart.functionType(core.String, [])}],
+      firstWhere: [core.String, [dart.functionType(core.bool, [core.String])], { orElse: dart.functionType(core.String, []) }],
+      lastWhere: [core.String, [dart.functionType(core.bool, [core.String])], { orElse: dart.functionType(core.String, []) }],
       singleWhere: [core.String, [dart.functionType(core.bool, [core.String])]],
       elementAt: [core.String, [core.int]],
       clear: [dart.void, []],
       modify: [dart.dynamic, [dart.functionType(dart.dynamic, [core.Set$(core.String)])]]
     })
   });
-  dart.defineExtensionMembers(CssClassSetImpl, [
-    'forEach',
-    'join',
-    'map',
-    'where',
-    'expand',
-    'every',
-    'any',
-    'reduce',
-    'fold',
-    'contains',
-    'toList',
-    'toSet',
-    'take',
-    'takeWhile',
-    'skip',
-    'skipWhile',
-    'firstWhere',
-    'lastWhere',
-    'singleWhere',
-    'elementAt',
-    'iterator',
-    'isEmpty',
-    'isNotEmpty',
-    'length',
-    'first',
-    'last',
-    'single'
-  ]);
+  dart.defineExtensionMembers(CssClassSetImpl, ['forEach', 'join', 'map', 'where', 'expand', 'every', 'any', 'reduce', 'fold', 'contains', 'toList', 'toSet', 'take', 'takeWhile', 'skip', 'skipWhile', 'firstWhere', 'lastWhere', 'singleWhere', 'elementAt', 'iterator', 'isEmpty', 'isNotEmpty', 'length', 'first', 'last', 'single']);
   dart.defineLazyProperties(CssClassSetImpl, {
     get _validTokenRE() {
       return core.RegExp.new('^\\S+$');
@@ -270,7 +230,7 @@ dart_library.library('dart/html_common', null, /* Imports */[
   }
   dart.fn(convertDartToNative_SerializedScriptValue);
   function convertNativeToDart_SerializedScriptValue(object) {
-    return convertNativeToDart_AcceptStructuredClone(object, {mustCopy: true});
+    return convertNativeToDart_AcceptStructuredClone(object, { mustCopy: true });
   }
   dart.fn(convertNativeToDart_SerializedScriptValue);
   class _StructuredClone extends core.Object {
@@ -428,7 +388,7 @@ dart_library.library('dart/html_common', null, /* Imports */[
       readSlot: [dart.dynamic, [core.int]],
       writeSlot: [dart.dynamic, [core.int, dart.dynamic]],
       walk: [dart.dynamic, [dart.dynamic]],
-      convertNativeToDart_AcceptStructuredClone: [dart.dynamic, [dart.dynamic], {mustCopy: dart.dynamic}]
+      convertNativeToDart_AcceptStructuredClone: [dart.dynamic, [dart.dynamic], { mustCopy: dart.dynamic }]
     })
   });
   class _TypedContextAttributes extends core.Object {
@@ -444,24 +404,9 @@ dart_library.library('dart/html_common', null, /* Imports */[
   }
   _TypedContextAttributes[dart.implements] = () => [web_gl.ContextAttributes];
   dart.setSignature(_TypedContextAttributes, {
-    constructors: () => ({_TypedContextAttributes: [_TypedContextAttributes, [core.bool, core.bool, core.bool, core.bool, core.bool, core.bool, core.bool]]})
+    constructors: () => ({ _TypedContextAttributes: [_TypedContextAttributes, [core.bool, core.bool, core.bool, core.bool, core.bool, core.bool, core.bool]] })
   });
-  dart.defineExtensionMembers(_TypedContextAttributes, [
-    'alpha',
-    'alpha',
-    'antialias',
-    'antialias',
-    'depth',
-    'depth',
-    'premultipliedAlpha',
-    'premultipliedAlpha',
-    'preserveDrawingBuffer',
-    'preserveDrawingBuffer',
-    'stencil',
-    'stencil',
-    'failIfMajorPerformanceCaveat',
-    'failIfMajorPerformanceCaveat'
-  ]);
+  dart.defineExtensionMembers(_TypedContextAttributes, ['alpha', 'alpha', 'antialias', 'antialias', 'depth', 'depth', 'premultipliedAlpha', 'premultipliedAlpha', 'preserveDrawingBuffer', 'preserveDrawingBuffer', 'stencil', 'stencil', 'failIfMajorPerformanceCaveat', 'failIfMajorPerformanceCaveat']);
   function convertNativeToDart_ContextAttributes(nativeContextAttributes) {
     if (dart.is(nativeContextAttributes, web_gl.ContextAttributes)) {
       return nativeContextAttributes;
@@ -478,7 +423,7 @@ dart_library.library('dart/html_common', null, /* Imports */[
   }
   _TypedImageData[dart.implements] = () => [html.ImageData];
   dart.setSignature(_TypedImageData, {
-    constructors: () => ({_TypedImageData: [_TypedImageData, [typed_data.Uint8ClampedList, core.int, core.int]]})
+    constructors: () => ({ _TypedImageData: [_TypedImageData, [typed_data.Uint8ClampedList, core.int, core.int]] })
   });
   dart.defineExtensionMembers(_TypedImageData, ['data', 'height', 'width']);
   function convertNativeToDart_ImageData(nativeImageData) {
@@ -498,7 +443,7 @@ dart_library.library('dart/html_common', null, /* Imports */[
   dart.fn(convertNativeToDart_ImageData, html.ImageData, [dart.dynamic]);
   function convertDartToNative_ImageData(imageData) {
     if (dart.is(imageData, _TypedImageData)) {
-      return {data: imageData.data, height: imageData.height, width: imageData.width};
+      return { data: imageData.data, height: imageData.height, width: imageData.width };
     }
     return imageData;
   }
@@ -535,7 +480,7 @@ dart_library.library('dart/html_common', null, /* Imports */[
   dart.fn(convertDartToNative_StringArray, core.List, [core.List$(core.String)]);
   function convertNativeToDart_DateTime(date) {
     let millisSinceEpoch = date.getTime();
-    return new core.DateTime.fromMillisecondsSinceEpoch(millisSinceEpoch, {isUtc: true});
+    return new core.DateTime.fromMillisecondsSinceEpoch(millisSinceEpoch, { isUtc: true });
   }
   dart.fn(convertNativeToDart_DateTime, core.DateTime, [dart.dynamic]);
   function convertDartToNative_DateTime(date) {
@@ -548,9 +493,9 @@ dart_library.library('dart/html_common', null, /* Imports */[
   dart.fn(convertDartToNative_PrepareForStructuredClone);
   function convertNativeToDart_AcceptStructuredClone(object, opts) {
     let mustCopy = opts && 'mustCopy' in opts ? opts.mustCopy : false;
-    return new _AcceptStructuredCloneDart2Js().convertNativeToDart_AcceptStructuredClone(object, {mustCopy: mustCopy});
+    return new _AcceptStructuredCloneDart2Js().convertNativeToDart_AcceptStructuredClone(object, { mustCopy: mustCopy });
   }
-  dart.fn(convertNativeToDart_AcceptStructuredClone, dart.dynamic, [dart.dynamic], {mustCopy: dart.dynamic});
+  dart.fn(convertNativeToDart_AcceptStructuredClone, dart.dynamic, [dart.dynamic], { mustCopy: dart.dynamic });
   class _StructuredCloneDart2Js extends _StructuredClone {
     _StructuredCloneDart2Js() {
       super._StructuredClone();
@@ -630,8 +575,8 @@ dart_library.library('dart/html_common', null, /* Imports */[
   dart.fn(isJavaScriptPromise, core.bool, [dart.dynamic]);
   function convertNativePromiseToDartFuture(promise) {
     let completer = async.Completer.new();
-    let then = dart.dcall(/* Unimplemented unknown name */convertDartClosureToJS, dart.fn(result => completer.complete(result), dart.void, [dart.dynamic]), 1);
-    let error = dart.dcall(/* Unimplemented unknown name */convertDartClosureToJS, dart.fn(result => completer.completeError(result), dart.void, [dart.dynamic]), 1);
+    let then = dart.dcall( /* Unimplemented unknown name */convertDartClosureToJS, dart.fn(result => completer.complete(result), dart.void, [dart.dynamic]), 1);
+    let error = dart.dcall( /* Unimplemented unknown name */convertDartClosureToJS, dart.fn(result => completer.completeError(result), dart.void, [dart.dynamic]), 1);
     let newPromise = promise.then(then).catch(error);
     return completer.future;
   }
@@ -704,14 +649,13 @@ dart_library.library('dart/html_common', null, /* Imports */[
       try {
         let e = html.Event.eventType(eventType, '');
         return dart.is(e, html.Event);
-      } catch (_) {
-      }
+      } catch (_) {}
 
       return false;
     }
   }
   dart.setSignature(Device, {
-    statics: () => ({isEventTypeSupported: [core.bool, [core.String]]}),
+    statics: () => ({ isEventTypeSupported: [core.bool, [core.String]] }),
     names: ['isEventTypeSupported']
   });
   Device._isOpera = null;
@@ -733,7 +677,7 @@ dart_library.library('dart/html_common', null, /* Imports */[
       return new (_internal.WhereIterable$(html.Element))(this[_childNodes], dart.fn(n => dart.is(n, html.Element), core.bool, [html.Element]));
     }
     get [_filtered]() {
-      return core.List$(html.Element).from(this[_iterable], {growable: false});
+      return core.List$(html.Element).from(this[_iterable], { growable: false });
     }
     forEach(f) {
       this[_filtered][dartx.forEach](f);
@@ -840,7 +784,7 @@ dart_library.library('dart/html_common', null, /* Imports */[
   }
   FilteredElementList[dart.implements] = () => [NodeListWrapper];
   dart.setSignature(FilteredElementList, {
-    constructors: () => ({FilteredElementList: [FilteredElementList, [html.Node]]}),
+    constructors: () => ({ FilteredElementList: [FilteredElementList, [html.Node]] }),
     methods: () => ({
       forEach: [dart.void, [dart.functionType(dart.void, [html.Element])]],
       set: [dart.void, [core.int, html.Element]],
@@ -857,29 +801,7 @@ dart_library.library('dart/html_common', null, /* Imports */[
       get: [html.Element, [core.int]]
     })
   });
-  dart.defineExtensionMembers(FilteredElementList, [
-    'forEach',
-    'set',
-    'add',
-    'addAll',
-    'contains',
-    'sort',
-    'setRange',
-    'fillRange',
-    'replaceRange',
-    'removeRange',
-    'clear',
-    'removeLast',
-    'insert',
-    'insertAll',
-    'removeAt',
-    'remove',
-    'get',
-    'length',
-    'reversed',
-    'length',
-    'iterator'
-  ]);
+  dart.defineExtensionMembers(FilteredElementList, ['forEach', 'set', 'add', 'addAll', 'contains', 'sort', 'setRange', 'fillRange', 'replaceRange', 'removeRange', 'clear', 'removeLast', 'insert', 'insertAll', 'removeAt', 'remove', 'get', 'length', 'reversed', 'length', 'iterator']);
   class Lists extends core.Object {
     static indexOf(a, element, startIndex, endIndex) {
       if (dart.notNull(startIndex) >= dart.notNull(a[dartx.length])) {

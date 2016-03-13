@@ -1,76 +1,11 @@
-dart_library.library('dart/_interceptors', null, /* Imports */[
-  'dart/_runtime',
-  'dart/core',
-  'dart/_internal',
-  'dart/collection',
-  'dart/math'
-], /* Lazy imports */[
-  'dart/_js_helper'
-], function(exports, dart, core, _internal, collection, math, _js_helper) {
+dart_library.library('dart/_interceptors', null, /* Imports */['dart/_runtime', 'dart/core', 'dart/_internal', 'dart/collection', 'dart/math'], /* Lazy imports */['dart/_js_helper'], function (exports, dart, core, _internal, collection, math, _js_helper) {
   'use strict';
+
   let dartx = dart.dartx;
-  const JSArray$ = dart.generic(function(E) {
-    dart.defineExtensionNames([
-      'checkGrowable',
-      'add',
-      'removeAt',
-      'insert',
-      'insertAll',
-      'setAll',
-      'removeLast',
-      'remove',
-      'removeWhere',
-      'retainWhere',
-      'where',
-      'expand',
-      'addAll',
-      'clear',
-      'forEach',
-      'map',
-      'join',
-      'take',
-      'takeWhile',
-      'skip',
-      'skipWhile',
-      'reduce',
-      'fold',
-      'firstWhere',
-      'lastWhere',
-      'singleWhere',
-      'elementAt',
-      'sublist',
-      'getRange',
-      'first',
-      'last',
-      'single',
-      'removeRange',
-      'setRange',
-      'fillRange',
-      'replaceRange',
-      'any',
-      'every',
-      'reversed',
-      'sort',
-      'shuffle',
-      'indexOf',
-      'lastIndexOf',
-      'contains',
-      'isEmpty',
-      'isNotEmpty',
-      'toString',
-      'toList',
-      'toSet',
-      'iterator',
-      'hashCode',
-      'length',
-      'length',
-      'get',
-      'set',
-      'asMap'
-    ]);
+  const JSArray$ = dart.generic(function (E) {
+    dart.defineExtensionNames(['checkGrowable', 'add', 'removeAt', 'insert', 'insertAll', 'setAll', 'removeLast', 'remove', 'removeWhere', 'retainWhere', 'where', 'expand', 'addAll', 'clear', 'forEach', 'map', 'join', 'take', 'takeWhile', 'skip', 'skipWhile', 'reduce', 'fold', 'firstWhere', 'lastWhere', 'singleWhere', 'elementAt', 'sublist', 'getRange', 'first', 'last', 'single', 'removeRange', 'setRange', 'fillRange', 'replaceRange', 'any', 'every', 'reversed', 'sort', 'shuffle', 'indexOf', 'lastIndexOf', 'contains', 'isEmpty', 'isNotEmpty', 'toString', 'toList', 'toSet', 'iterator', 'hashCode', 'length', 'length', 'get', 'set', 'asMap']);
     class JSArray extends core.Object {
-      JSArray() {
-      }
+      JSArray() {}
       static typed(allocation) {
         return dart.list(allocation, E);
       }
@@ -181,7 +116,7 @@ dart_library.library('dart/_interceptors', null, /* Imports */[
         if (separator === void 0) separator = "";
         let list = core.List.new(this[dartx.length]);
         for (let i = 0; i < dart.notNull(this[dartx.length]); i++) {
-          list[dartx.set](i, `${this[dartx.get](i)}`);
+          list[dartx.set](i, `${ this[dartx.get](i) }`);
         }
         return list.join(separator);
       }
@@ -402,8 +337,8 @@ dart_library.library('dart/_interceptors', null, /* Imports */[
         [dartx.skipWhile]: [core.Iterable$(E), [dart.functionType(core.bool, [E])]],
         [dartx.reduce]: [E, [dart.functionType(E, [E, E])]],
         [dartx.fold]: [dart.dynamic, [dart.dynamic, dart.functionType(dart.dynamic, [dart.dynamic, E])]],
-        [dartx.firstWhere]: [E, [dart.functionType(core.bool, [E])], {orElse: dart.functionType(E, [])}],
-        [dartx.lastWhere]: [E, [dart.functionType(core.bool, [E])], {orElse: dart.functionType(E, [])}],
+        [dartx.firstWhere]: [E, [dart.functionType(core.bool, [E])], { orElse: dart.functionType(E, []) }],
+        [dartx.lastWhere]: [E, [dart.functionType(core.bool, [E])], { orElse: dart.functionType(E, []) }],
         [dartx.singleWhere]: [E, [dart.functionType(core.bool, [E])]],
         [dartx.elementAt]: [E, [core.int]],
         [dartx.sublist]: [core.List$(E), [core.int], [core.int]],
@@ -419,21 +354,21 @@ dart_library.library('dart/_interceptors', null, /* Imports */[
         [dartx.indexOf]: [core.int, [core.Object], [core.int]],
         [dartx.lastIndexOf]: [core.int, [core.Object], [core.int]],
         [dartx.contains]: [core.bool, [core.Object]],
-        [dartx.toList]: [core.List$(E), [], {growable: core.bool}],
+        [dartx.toList]: [core.List$(E), [], { growable: core.bool }],
         [dartx.toSet]: [core.Set$(E), []],
         [dartx.get]: [E, [core.int]],
         [dartx.set]: [dart.void, [core.int, E]],
         [dartx.asMap]: [core.Map$(core.int, E), []]
       }),
-      statics: () => ({markFixedList: [core.List, [core.List]]}),
+      statics: () => ({ markFixedList: [core.List, [core.List]] }),
       names: ['markFixedList']
     });
-    JSArray[dart.metadata] = () => [dart.const(new _js_helper.JsPeerInterface({name: 'Array'}))];
+    JSArray[dart.metadata] = () => [dart.const(new _js_helper.JsPeerInterface({ name: 'Array' }))];
     return JSArray;
   });
   let JSArray = JSArray$();
   dart.registerExtension(dart.global.Array, JSArray);
-  const JSMutableArray$ = dart.generic(function(E) {
+  const JSMutableArray$ = dart.generic(function (E) {
     class JSMutableArray extends JSArray$(E) {
       JSMutableArray() {
         super.JSArray();
@@ -443,77 +378,28 @@ dart_library.library('dart/_interceptors', null, /* Imports */[
     return JSMutableArray;
   });
   let JSMutableArray = JSMutableArray$();
-  const JSFixedArray$ = dart.generic(function(E) {
+  const JSFixedArray$ = dart.generic(function (E) {
     class JSFixedArray extends JSMutableArray$(E) {}
     return JSFixedArray;
   });
   let JSFixedArray = JSFixedArray$();
-  const JSExtendableArray$ = dart.generic(function(E) {
+  const JSExtendableArray$ = dart.generic(function (E) {
     class JSExtendableArray extends JSMutableArray$(E) {}
     return JSExtendableArray;
   });
   let JSExtendableArray = JSExtendableArray$();
   class Interceptor extends core.Object {
-    Interceptor() {
-    }
+    Interceptor() {}
   }
   dart.setSignature(Interceptor, {
-    constructors: () => ({Interceptor: [Interceptor, []]})
+    constructors: () => ({ Interceptor: [Interceptor, []] })
   });
   const _isInt32 = Symbol('_isInt32');
   const _tdivSlow = Symbol('_tdivSlow');
   const _shlPositive = Symbol('_shlPositive');
   const _shrOtherPositive = Symbol('_shrOtherPositive');
   const _shrBothPositive = Symbol('_shrBothPositive');
-  dart.defineExtensionNames([
-    'compareTo',
-    'isNegative',
-    'isNaN',
-    'isInfinite',
-    'isFinite',
-    'remainder',
-    'abs',
-    'sign',
-    'toInt',
-    'truncate',
-    'ceil',
-    'floor',
-    'round',
-    'ceilToDouble',
-    'floorToDouble',
-    'roundToDouble',
-    'truncateToDouble',
-    'clamp',
-    'toDouble',
-    'toStringAsFixed',
-    'toStringAsExponential',
-    'toStringAsPrecision',
-    'toRadixString',
-    'toString',
-    'hashCode',
-    'unary-',
-    '+',
-    '-',
-    '/',
-    '*',
-    '%',
-    '~/',
-    '<<',
-    '>>',
-    '&',
-    '|',
-    '^',
-    '<',
-    '>',
-    '<=',
-    '>=',
-    'isEven',
-    'isOdd',
-    'toUnsigned',
-    'toSigned',
-    'bitLength',
-    '~'
-  ]);
+  dart.defineExtensionNames(['compareTo', 'isNegative', 'isNaN', 'isInfinite', 'isFinite', 'remainder', 'abs', 'sign', 'toInt', 'truncate', 'ceil', 'floor', 'round', 'ceilToDouble', 'floorToDouble', 'roundToDouble', 'truncateToDouble', 'clamp', 'toDouble', 'toStringAsFixed', 'toStringAsExponential', 'toStringAsPrecision', 'toRadixString', 'toString', 'hashCode', 'unary-', '+', '-', '/', '*', '%', '~/', '<<', '>>', '&', '|', '^', '<', '>', '<=', '>=', 'isEven', 'isOdd', 'toUnsigned', 'toSigned', 'bitLength', '~']);
   class JSNumber extends Interceptor {
     JSNumber() {
       super.Interceptor();
@@ -616,7 +502,7 @@ dart_library.library('dart/_interceptors', null, /* Imports */[
         dart.throw(new core.RangeError(fractionDigits));
       }
       let result = this.toFixed(fractionDigits);
-      if (this == 0 && dart.notNull(this[dartx.isNegative])) return `-${result}`;
+      if (this == 0 && dart.notNull(this[dartx.isNegative])) return `-${ result }`;
       return result;
     }
     [dartx.toStringAsExponential](fractionDigits) {
@@ -631,7 +517,7 @@ dart_library.library('dart/_interceptors', null, /* Imports */[
       } else {
         result = this.toExponential();
       }
-      if (this == 0 && dart.notNull(this[dartx.isNegative])) return `-${result}`;
+      if (this == 0 && dart.notNull(this[dartx.isNegative])) return `-${ result }`;
       return result;
     }
     [dartx.toStringAsPrecision](precision) {
@@ -640,7 +526,7 @@ dart_library.library('dart/_interceptors', null, /* Imports */[
         dart.throw(new core.RangeError(precision));
       }
       let result = this.toPrecision(precision);
-      if (this == 0 && dart.notNull(this[dartx.isNegative])) return `-${result}`;
+      if (this == 0 && dart.notNull(this[dartx.isNegative])) return `-${ result }`;
       return result;
     }
     [dartx.toRadixString](radix) {
@@ -656,7 +542,7 @@ dart_library.library('dart/_interceptors', null, /* Imports */[
     static _handleIEtoString(result) {
       let match = /^([\da-z]+)(?:\.([\da-z]+))?\(e\+(\d+)\)$/.exec(result);
       if (match == null) {
-        dart.throw(new core.UnsupportedError(`Unexpected toString result: ${result}`));
+        dart.throw(new core.UnsupportedError(`Unexpected toString result: ${ result }`));
       }
       result = dart.dindex(match, 1);
       let exponent = +dart.dindex(match, 3);
@@ -817,7 +703,7 @@ dart_library.library('dart/_interceptors', null, /* Imports */[
   }
   JSNumber[dart.implements] = () => [core.int, core.double];
   dart.setSignature(JSNumber, {
-    constructors: () => ({JSNumber: [JSNumber, []]}),
+    constructors: () => ({ JSNumber: [JSNumber, []] }),
     methods: () => ({
       [dartx.compareTo]: [core.int, [core.num]],
       [dartx.remainder]: [JSNumber, [core.num]],
@@ -872,46 +758,12 @@ dart_library.library('dart/_interceptors', null, /* Imports */[
     }),
     names: ['_handleIEtoString', '_bitCount', '_shru', '_shrs', '_ors', '_spread']
   });
-  JSNumber[dart.metadata] = () => [dart.const(new _js_helper.JsPeerInterface({name: 'Number'}))];
+  JSNumber[dart.metadata] = () => [dart.const(new _js_helper.JsPeerInterface({ name: 'Number' }))];
   JSNumber._MIN_INT32 = -2147483648;
   JSNumber._MAX_INT32 = 2147483647;
   dart.registerExtension(dart.global.Number, JSNumber);
   const _defaultSplit = Symbol('_defaultSplit');
-  dart.defineExtensionNames([
-    'codeUnitAt',
-    'allMatches',
-    'matchAsPrefix',
-    '+',
-    'endsWith',
-    'replaceAll',
-    'replaceAllMapped',
-    'splitMapJoin',
-    'replaceFirst',
-    'split',
-    'startsWith',
-    'substring',
-    'toLowerCase',
-    'toUpperCase',
-    'trim',
-    'trimLeft',
-    'trimRight',
-    '*',
-    'padLeft',
-    'padRight',
-    'codeUnits',
-    'runes',
-    'indexOf',
-    'lastIndexOf',
-    'contains',
-    'isEmpty',
-    'isNotEmpty',
-    'compareTo',
-    'toString',
-    'hashCode',
-    'runtimeType',
-    'length',
-    'get'
-  ]);
+  dart.defineExtensionNames(['codeUnitAt', 'allMatches', 'matchAsPrefix', '+', 'endsWith', 'replaceAll', 'replaceAllMapped', 'splitMapJoin', 'replaceFirst', 'split', 'startsWith', 'substring', 'toLowerCase', 'toUpperCase', 'trim', 'trimLeft', 'trimRight', '*', 'padLeft', 'padRight', 'codeUnits', 'runes', 'indexOf', 'lastIndexOf', 'contains', 'isEmpty', 'isNotEmpty', 'compareTo', 'toString', 'hashCode', 'runtimeType', 'length', 'get']);
   class JSString extends Interceptor {
     JSString() {
       super.Interceptor();
@@ -959,7 +811,7 @@ dart_library.library('dart/_interceptors', null, /* Imports */[
       return dart.as(_js_helper.stringReplaceAllUnchecked(this, from, to), core.String);
     }
     [dartx.replaceAllMapped](from, convert) {
-      return this[dartx.splitMapJoin](from, {onMatch: convert});
+      return this[dartx.splitMapJoin](from, { onMatch: convert });
     }
     [dartx.splitMapJoin](from, opts) {
       let onMatch = opts && 'onMatch' in opts ? opts.onMatch : null;
@@ -1048,13 +900,13 @@ dart_library.library('dart/_interceptors', null, /* Imports */[
           case 32:
           case 133:
           case 160:
-          {
-            return true;
-          }
+            {
+              return true;
+            }
           default:
-          {
-            return false;
-          }
+            {
+              return false;
+            }
         }
       }
       switch (codeUnit) {
@@ -1077,13 +929,13 @@ dart_library.library('dart/_interceptors', null, /* Imports */[
         case 8287:
         case 12288:
         case 65279:
-        {
-          return true;
-        }
+          {
+            return true;
+          }
         default:
-        {
-          return false;
-        }
+          {
+            return false;
+          }
       }
     }
     static _skipLeadingWhitespace(string, index) {
@@ -1289,7 +1141,7 @@ dart_library.library('dart/_interceptors', null, /* Imports */[
   }
   JSString[dart.implements] = () => [core.String, JSIndexable];
   dart.setSignature(JSString, {
-    constructors: () => ({JSString: [JSString, []]}),
+    constructors: () => ({ JSString: [JSString, []] }),
     methods: () => ({
       [dartx.codeUnitAt]: [core.int, [core.int]],
       [dartx.allMatches]: [core.Iterable$(core.Match), [core.String], [core.int]],
@@ -1298,7 +1150,7 @@ dart_library.library('dart/_interceptors', null, /* Imports */[
       [dartx.endsWith]: [core.bool, [core.String]],
       [dartx.replaceAll]: [core.String, [core.Pattern, core.String]],
       [dartx.replaceAllMapped]: [core.String, [core.Pattern, dart.functionType(core.String, [core.Match])]],
-      [dartx.splitMapJoin]: [core.String, [core.Pattern], {onMatch: dart.functionType(core.String, [core.Match]), onNonMatch: dart.functionType(core.String, [core.String])}],
+      [dartx.splitMapJoin]: [core.String, [core.Pattern], { onMatch: dart.functionType(core.String, [core.Match]), onNonMatch: dart.functionType(core.String, [core.String]) }],
       [dartx.replaceFirst]: [core.String, [core.Pattern, core.String], [core.int]],
       [dartx.split]: [core.List$(core.String), [core.Pattern]],
       [_defaultSplit]: [core.List$(core.String), [core.Pattern]],
@@ -1325,7 +1177,7 @@ dart_library.library('dart/_interceptors', null, /* Imports */[
     }),
     names: ['_isWhitespace', '_skipLeadingWhitespace', '_skipTrailingWhitespace']
   });
-  JSString[dart.metadata] = () => [dart.const(new _js_helper.JsPeerInterface({name: 'String'}))];
+  JSString[dart.metadata] = () => [dart.const(new _js_helper.JsPeerInterface({ name: 'String' }))];
   dart.registerExtension(dart.global.String, JSString);
   const _string = Symbol('_string');
   class _CodeUnits extends _internal.UnmodifiableListBase$(core.int) {
@@ -1340,19 +1192,15 @@ dart_library.library('dart/_interceptors', null, /* Imports */[
     }
   }
   dart.setSignature(_CodeUnits, {
-    constructors: () => ({_CodeUnits: [_CodeUnits, [core.String]]}),
-    methods: () => ({get: [core.int, [core.int]]})
+    constructors: () => ({ _CodeUnits: [_CodeUnits, [core.String]] }),
+    methods: () => ({ get: [core.int, [core.int]] })
   });
   dart.defineExtensionMembers(_CodeUnits, ['get', 'length']);
   function getInterceptor(obj) {
     return obj;
   }
   dart.fn(getInterceptor);
-  dart.defineExtensionNames([
-    'toString',
-    'hashCode',
-    'runtimeType'
-  ]);
+  dart.defineExtensionNames(['toString', 'hashCode', 'runtimeType']);
   class JSBool extends Interceptor {
     JSBool() {
       super.Interceptor();
@@ -1369,9 +1217,9 @@ dart_library.library('dart/_interceptors', null, /* Imports */[
   }
   JSBool[dart.implements] = () => [core.bool];
   dart.setSignature(JSBool, {
-    constructors: () => ({JSBool: [JSBool, []]})
+    constructors: () => ({ JSBool: [JSBool, []] })
   });
-  JSBool[dart.metadata] = () => [dart.const(new _js_helper.JsPeerInterface({name: 'Boolean'}))];
+  JSBool[dart.metadata] = () => [dart.const(new _js_helper.JsPeerInterface({ name: 'Boolean' }))];
   dart.registerExtension(dart.global.Boolean, JSBool);
   class JSIndexable extends core.Object {}
   class JSMutableIndexable extends JSIndexable {}
@@ -1389,7 +1237,7 @@ dart_library.library('dart/_interceptors', null, /* Imports */[
   }
   JavaScriptObject[dart.implements] = () => [JSObject];
   dart.setSignature(JavaScriptObject, {
-    constructors: () => ({JavaScriptObject: [JavaScriptObject, []]})
+    constructors: () => ({ JavaScriptObject: [JavaScriptObject, []] })
   });
   class PlainJavaScriptObject extends JavaScriptObject {
     PlainJavaScriptObject() {
@@ -1397,7 +1245,7 @@ dart_library.library('dart/_interceptors', null, /* Imports */[
     }
   }
   dart.setSignature(PlainJavaScriptObject, {
-    constructors: () => ({PlainJavaScriptObject: [PlainJavaScriptObject, []]})
+    constructors: () => ({ PlainJavaScriptObject: [PlainJavaScriptObject, []] })
   });
   class UnknownJavaScriptObject extends JavaScriptObject {
     UnknownJavaScriptObject() {
@@ -1408,7 +1256,7 @@ dart_library.library('dart/_interceptors', null, /* Imports */[
     }
   }
   dart.setSignature(UnknownJavaScriptObject, {
-    constructors: () => ({UnknownJavaScriptObject: [UnknownJavaScriptObject, []]})
+    constructors: () => ({ UnknownJavaScriptObject: [UnknownJavaScriptObject, []] })
   });
   // Exports:
   exports.JSArray$ = JSArray$;

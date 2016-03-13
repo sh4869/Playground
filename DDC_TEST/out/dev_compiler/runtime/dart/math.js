@@ -1,10 +1,6 @@
-dart_library.library('dart/math', null, /* Imports */[
-  'dart/_runtime',
-  'dart/core'
-], /* Lazy imports */[
-  'dart/_js_helper'
-], function(exports, dart, core, _js_helper) {
+dart_library.library('dart/math', null, /* Imports */['dart/_runtime', 'dart/core'], /* Lazy imports */['dart/_js_helper'], function (exports, dart, core, _js_helper) {
   'use strict';
+
   let dartx = dart.dartx;
   class _JenkinsSmiHash extends core.Object {
     static combine(hash, value) {
@@ -33,14 +29,14 @@ dart_library.library('dart/math', null, /* Imports */[
     }),
     names: ['combine', 'finish', 'hash2', 'hash4']
   });
-  const Point$ = dart.generic(function(T) {
+  const Point$ = dart.generic(function (T) {
     class Point extends core.Object {
       Point(x, y) {
         this.x = x;
         this.y = y;
       }
       toString() {
-        return `Point(${this.x}, ${this.y})`;
+        return `Point(${ this.x }, ${ this.y })`;
       }
       ['=='](other) {
         if (!dart.is(other, Point$())) return false;
@@ -77,7 +73,7 @@ dart_library.library('dart/math', null, /* Imports */[
       }
     }
     dart.setSignature(Point, {
-      constructors: () => ({Point: [Point$(T), [T, T]]}),
+      constructors: () => ({ Point: [Point$(T), [T, T]] }),
       methods: () => ({
         '+': [Point$(T), [Point$(T)]],
         '-': [Point$(T), [Point$(T)]],
@@ -96,28 +92,12 @@ dart_library.library('dart/math', null, /* Imports */[
     }
   }
   dart.setSignature(Random, {
-    constructors: () => ({new: [Random, [], [core.int]]})
+    constructors: () => ({ new: [Random, [], [core.int]] })
   });
-  const _RectangleBase$ = dart.generic(function(T) {
-    dart.defineExtensionNames([
-      'right',
-      'bottom',
-      'toString',
-      '==',
-      'hashCode',
-      'intersection',
-      'intersects',
-      'boundingBox',
-      'containsRectangle',
-      'containsPoint',
-      'topLeft',
-      'topRight',
-      'bottomRight',
-      'bottomLeft'
-    ]);
+  const _RectangleBase$ = dart.generic(function (T) {
+    dart.defineExtensionNames(['right', 'bottom', 'toString', '==', 'hashCode', 'intersection', 'intersects', 'boundingBox', 'containsRectangle', 'containsPoint', 'topLeft', 'topRight', 'bottomRight', 'bottomLeft']);
     class _RectangleBase extends core.Object {
-      _RectangleBase() {
-      }
+      _RectangleBase() {}
       get [dartx.right]() {
         return dart.notNull(this[dartx.left]) + dart.notNull(this[dartx.width]);
       }
@@ -125,7 +105,7 @@ dart_library.library('dart/math', null, /* Imports */[
         return dart.notNull(this[dartx.top]) + dart.notNull(this[dartx.height]);
       }
       toString() {
-        return `Rectangle (${this[dartx.left]}, ${this[dartx.top]}) ${this[dartx.width]} x ${this[dartx.height]}`;
+        return `Rectangle (${ this[dartx.left] }, ${ this[dartx.top] }) ${ this[dartx.width] } x ${ this[dartx.height] }`;
       }
       ['=='](other) {
         if (!dart.is(other, Rectangle)) return false;
@@ -178,7 +158,7 @@ dart_library.library('dart/math', null, /* Imports */[
       }
     }
     dart.setSignature(_RectangleBase, {
-      constructors: () => ({_RectangleBase: [_RectangleBase$(T), []]}),
+      constructors: () => ({ _RectangleBase: [_RectangleBase$(T), []] }),
       methods: () => ({
         [dartx.intersection]: [Rectangle$(T), [Rectangle$(T)]],
         [dartx.intersects]: [core.bool, [Rectangle$(core.num)]],
@@ -190,13 +170,8 @@ dart_library.library('dart/math', null, /* Imports */[
     return _RectangleBase;
   });
   let _RectangleBase = _RectangleBase$();
-  const Rectangle$ = dart.generic(function(T) {
-    dart.defineExtensionNames([
-      'left',
-      'top',
-      'width',
-      'height'
-    ]);
+  const Rectangle$ = dart.generic(function (T) {
+    dart.defineExtensionNames(['left', 'top', 'width', 'height']);
     class Rectangle extends _RectangleBase$(T) {
       get [dartx.left]() {
         return this.left;
@@ -240,7 +215,7 @@ dart_library.library('dart/math', null, /* Imports */[
   let Rectangle = Rectangle$();
   const _width = Symbol('_width');
   const _height = Symbol('_height');
-  const MutableRectangle$ = dart.generic(function(T) {
+  const MutableRectangle$ = dart.generic(function (T) {
     class MutableRectangle extends _RectangleBase$(T) {
       MutableRectangle(left, top, width, height) {
         this.left = left;
@@ -382,11 +357,10 @@ dart_library.library('dart/math', null, /* Imports */[
   dart.fn(log, core.double, [core.num]);
   const _POW2_32 = 4294967296;
   class _JSRandom extends core.Object {
-    _JSRandom() {
-    }
+    _JSRandom() {}
     nextInt(max) {
       if (dart.notNull(max) <= 0 || dart.notNull(max) > dart.notNull(_POW2_32)) {
-        dart.throw(new core.RangeError(`max must be in range 0 < max ≤ 2^32, was ${max}`));
+        dart.throw(new core.RangeError(`max must be in range 0 < max ≤ 2^32, was ${ max }`));
       }
       return Math.random() * max >>> 0;
     }
@@ -399,7 +373,7 @@ dart_library.library('dart/math', null, /* Imports */[
   }
   _JSRandom[dart.implements] = () => [Random];
   dart.setSignature(_JSRandom, {
-    constructors: () => ({_JSRandom: [_JSRandom, []]}),
+    constructors: () => ({ _JSRandom: [_JSRandom, []] }),
     methods: () => ({
       nextInt: [core.int, [core.int]],
       nextDouble: [core.double, []],
@@ -480,7 +454,7 @@ dart_library.library('dart/math', null, /* Imports */[
     }
     nextInt(max) {
       if (dart.notNull(max) <= 0 || dart.notNull(max) > dart.notNull(_POW2_32)) {
-        dart.throw(new core.RangeError(`max must be in range 0 < max ≤ 2^32, was ${max}`));
+        dart.throw(new core.RangeError(`max must be in range 0 < max ≤ 2^32, was ${ max }`));
       }
       if ((dart.notNull(max) & dart.notNull(max) - 1) == 0) {
         this[_nextState]();
@@ -509,7 +483,7 @@ dart_library.library('dart/math', null, /* Imports */[
   }
   _Random[dart.implements] = () => [Random];
   dart.setSignature(_Random, {
-    constructors: () => ({_Random: [_Random, [core.int]]}),
+    constructors: () => ({ _Random: [_Random, [core.int]] }),
     methods: () => ({
       [_nextState]: [dart.void, []],
       nextInt: [core.int, [core.int]],

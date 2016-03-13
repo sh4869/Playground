@@ -1,15 +1,6 @@
-dart_library.library('dart/indexed_db', null, /* Imports */[
-  'dart/_runtime',
-  'dart/core',
-  'dart/html_common',
-  'dart/_js_helper',
-  'dart/_interceptors',
-  'dart/async',
-  'dart/_metadata',
-  'dart/html'
-], /* Lazy imports */[
-], function(exports, dart, core, html_common, _js_helper, _interceptors, async, _metadata, html) {
+dart_library.library('dart/indexed_db', null, /* Imports */['dart/_runtime', 'dart/core', 'dart/html_common', 'dart/_js_helper', 'dart/_interceptors', 'dart/async', 'dart/_metadata', 'dart/html'], /* Lazy imports */[], function (exports, dart, core, html_common, _js_helper, _interceptors, async, _metadata, html) {
   'use strict';
+
   let dartx = dart.dartx;
   class _KeyRangeFactoryProvider extends core.Object {
     static createKeyRange_only(value) {
@@ -90,7 +81,7 @@ dart_library.library('dart/indexed_db', null, /* Imports */[
   }
   dart.fn(_convertDartToNative_IDBKey);
   function _convertNativeToDart_IDBAny(object) {
-    return html_common.convertNativeToDart_AcceptStructuredClone(object, {mustCopy: false});
+    return html_common.convertNativeToDart_AcceptStructuredClone(object, { mustCopy: false });
   }
   dart.fn(_convertNativeToDart_IDBAny);
   const _idbKey = 'JSExtendableArray|=Object|num|String';
@@ -99,17 +90,7 @@ dart_library.library('dart/indexed_db', null, /* Imports */[
   const _delete = Symbol('_delete');
   const _update = Symbol('_update');
   const _update_1 = Symbol('_update_1');
-  dart.defineExtensionNames([
-    'delete',
-    'update',
-    'next',
-    'advance',
-    'continuePrimaryKey',
-    'direction',
-    'key',
-    'primaryKey',
-    'source'
-  ]);
+  dart.defineExtensionNames(['delete', 'update', 'next', 'advance', 'continuePrimaryKey', 'direction', 'key', 'primaryKey', 'source']);
   class Cursor extends _interceptors.Interceptor {
     [dartx.delete]() {
       try {
@@ -118,7 +99,6 @@ dart_library.library('dart/indexed_db', null, /* Imports */[
         let stacktrace = dart.stackTrace(e);
         return async.Future.error(e, stacktrace);
       }
-
     }
     [dartx.update](value) {
       try {
@@ -127,7 +107,6 @@ dart_library.library('dart/indexed_db', null, /* Imports */[
         let stacktrace = dart.stackTrace(e);
         return async.Future.error(e, stacktrace);
       }
-
     }
     [dartx.next](key) {
       if (key === void 0) key = null;
@@ -170,7 +149,7 @@ dart_library.library('dart/indexed_db', null, /* Imports */[
     }
   }
   dart.setSignature(Cursor, {
-    constructors: () => ({_: [Cursor, []]}),
+    constructors: () => ({ _: [Cursor, []] }),
     methods: () => ({
       [dartx.delete]: [async.Future, []],
       [dartx.update]: [async.Future, [dart.dynamic]],
@@ -185,9 +164,7 @@ dart_library.library('dart/indexed_db', null, /* Imports */[
   Cursor[dart.metadata] = () => [dart.const(new _metadata.DomName('IDBCursor')), dart.const(new _metadata.Unstable()), dart.const(new _js_helper.Native("IDBCursor"))];
   dart.registerExtension(dart.global.IDBCursor, Cursor);
   const _get_value = Symbol('_get_value');
-  dart.defineExtensionNames([
-    'value'
-  ]);
+  dart.defineExtensionNames(['value']);
   class CursorWithValue extends Cursor {
     static _() {
       dart.throw(new core.UnsupportedError("Not supported"));
@@ -200,7 +177,7 @@ dart_library.library('dart/indexed_db', null, /* Imports */[
     }
   }
   dart.setSignature(CursorWithValue, {
-    constructors: () => ({_: [CursorWithValue, []]})
+    constructors: () => ({ _: [CursorWithValue, []] })
   });
   CursorWithValue[dart.metadata] = () => [dart.const(new _metadata.DocsEditable()), dart.const(new _metadata.DomName('IDBCursorWithValue')), dart.const(new _metadata.Unstable()), dart.const(new _js_helper.Native("IDBCursorWithValue"))];
   dart.registerExtension(dart.global.IDBCursorWithValue, CursorWithValue);
@@ -208,22 +185,7 @@ dart_library.library('dart/indexed_db', null, /* Imports */[
   const _transaction = Symbol('_transaction');
   const _createObjectStore_1 = Symbol('_createObjectStore_1');
   const _createObjectStore_2 = Symbol('_createObjectStore_2');
-  dart.defineExtensionNames([
-    'createObjectStore',
-    'transaction',
-    'transactionStore',
-    'transactionList',
-    'transactionStores',
-    'close',
-    'deleteObjectStore',
-    'onAbort',
-    'onClose',
-    'onError',
-    'onVersionChange',
-    'name',
-    'objectStoreNames',
-    'version'
-  ]);
+  dart.defineExtensionNames(['createObjectStore', 'transaction', 'transactionStore', 'transactionList', 'transactionStores', 'close', 'deleteObjectStore', 'onAbort', 'onClose', 'onError', 'onVersionChange', 'name', 'objectStoreNames', 'version']);
   class Database extends html.EventTarget {
     [dartx.createObjectStore](name, opts) {
       let keyPath = opts && 'keyPath' in opts ? opts.keyPath : null;
@@ -311,9 +273,9 @@ dart_library.library('dart/indexed_db', null, /* Imports */[
     }
   }
   dart.setSignature(Database, {
-    constructors: () => ({_: [Database, []]}),
+    constructors: () => ({ _: [Database, []] }),
     methods: () => ({
-      [dartx.createObjectStore]: [ObjectStore, [core.String], {keyPath: core.String, autoIncrement: core.bool}],
+      [dartx.createObjectStore]: [ObjectStore, [core.String], { keyPath: core.String, autoIncrement: core.bool }],
       [dartx.transaction]: [Transaction, [dart.dynamic, core.String]],
       [dartx.transactionStore]: [Transaction, [core.String, core.String]],
       [dartx.transactionList]: [Transaction, [core.List$(core.String), core.String]],
@@ -339,13 +301,7 @@ dart_library.library('dart/indexed_db', null, /* Imports */[
   const _open = Symbol('_open');
   const _deleteDatabase = Symbol('_deleteDatabase');
   const _webkitGetDatabaseNames = Symbol('_webkitGetDatabaseNames');
-  dart.defineExtensionNames([
-    'open',
-    'deleteDatabase',
-    'getDatabaseNames',
-    'supportsDatabaseNames',
-    'cmp'
-  ]);
+  dart.defineExtensionNames(['open', 'deleteDatabase', 'getDatabaseNames', 'supportsDatabaseNames', 'cmp']);
   class IdbFactory extends _interceptors.Interceptor {
     static get supported() {
       return !!(window.indexedDB || window.webkitIndexedDB || window.mozIndexedDB);
@@ -375,7 +331,6 @@ dart_library.library('dart/indexed_db', null, /* Imports */[
         let stacktrace = dart.stackTrace(e);
         return async.Future$(Database).error(e, stacktrace);
       }
-
     }
     [dartx.deleteDatabase](name, opts) {
       let onBlocked = opts && 'onBlocked' in opts ? opts.onBlocked : null;
@@ -394,7 +349,6 @@ dart_library.library('dart/indexed_db', null, /* Imports */[
         let stacktrace = dart.stackTrace(e);
         return async.Future$(IdbFactory).error(e, stacktrace);
       }
-
     }
     [dartx.getDatabaseNames]() {
       try {
@@ -404,7 +358,6 @@ dart_library.library('dart/indexed_db', null, /* Imports */[
         let stacktrace = dart.stackTrace(e);
         return async.Future$(core.List$(core.String)).error(e, stacktrace);
       }
-
     }
     get [dartx.supportsDatabaseNames]() {
       return dart.notNull(IdbFactory.supported) && !!(this.getDatabaseNames || this.webkitGetDatabaseNames);
@@ -426,10 +379,10 @@ dart_library.library('dart/indexed_db', null, /* Imports */[
     }
   }
   dart.setSignature(IdbFactory, {
-    constructors: () => ({_: [IdbFactory, []]}),
+    constructors: () => ({ _: [IdbFactory, []] }),
     methods: () => ({
-      [dartx.open]: [async.Future$(Database), [core.String], {version: core.int, onUpgradeNeeded: dart.functionType(dart.void, [dart.dynamic]), onBlocked: dart.functionType(dart.void, [dart.dynamic])}],
-      [dartx.deleteDatabase]: [async.Future$(IdbFactory), [core.String], {onBlocked: dart.functionType(dart.void, [dart.dynamic])}],
+      [dartx.open]: [async.Future$(Database), [core.String], { version: core.int, onUpgradeNeeded: dart.functionType(dart.void, [dart.dynamic]), onBlocked: dart.functionType(dart.void, [dart.dynamic]) }],
+      [dartx.deleteDatabase]: [async.Future$(IdbFactory), [core.String], { onBlocked: dart.functionType(dart.void, [dart.dynamic]) }],
       [dartx.getDatabaseNames]: [async.Future$(core.List$(core.String)), []],
       [dartx.cmp]: [core.int, [core.Object, core.Object]],
       [_deleteDatabase]: [OpenDBRequest, [core.String]],
@@ -453,18 +406,7 @@ dart_library.library('dart/indexed_db', null, /* Imports */[
   const _getKey = Symbol('_getKey');
   const _openCursor = Symbol('_openCursor');
   const _openKeyCursor = Symbol('_openKeyCursor');
-  dart.defineExtensionNames([
-    'count',
-    'get',
-    'getKey',
-    'openCursor',
-    'openKeyCursor',
-    'keyPath',
-    'multiEntry',
-    'name',
-    'objectStore',
-    'unique'
-  ]);
+  dart.defineExtensionNames(['count', 'get', 'getKey', 'openCursor', 'openKeyCursor', 'keyPath', 'multiEntry', 'name', 'objectStore', 'unique']);
   class Index extends _interceptors.Interceptor {
     [dartx.count](key_OR_range) {
       if (key_OR_range === void 0) key_OR_range = null;
@@ -475,7 +417,6 @@ dart_library.library('dart/indexed_db', null, /* Imports */[
         let stacktrace = dart.stackTrace(e);
         return async.Future$(core.int).error(e, stacktrace);
       }
-
     }
     [dartx.get](key) {
       try {
@@ -485,7 +426,6 @@ dart_library.library('dart/indexed_db', null, /* Imports */[
         let stacktrace = dart.stackTrace(e);
         return async.Future.error(e, stacktrace);
       }
-
     }
     [dartx.getKey](key) {
       try {
@@ -495,7 +435,6 @@ dart_library.library('dart/indexed_db', null, /* Imports */[
         let stacktrace = dart.stackTrace(e);
         return async.Future.error(e, stacktrace);
       }
-
     }
     [dartx.openCursor](opts) {
       let key = opts && 'key' in opts ? opts.key : null;
@@ -576,13 +515,13 @@ dart_library.library('dart/indexed_db', null, /* Imports */[
     }
   }
   dart.setSignature(Index, {
-    constructors: () => ({_: [Index, []]}),
+    constructors: () => ({ _: [Index, []] }),
     methods: () => ({
       [dartx.count]: [async.Future$(core.int), [], [dart.dynamic]],
       [dartx.get]: [async.Future, [dart.dynamic]],
       [dartx.getKey]: [async.Future, [dart.dynamic]],
-      [dartx.openCursor]: [async.Stream$(CursorWithValue), [], {key: dart.dynamic, range: KeyRange, direction: core.String, autoAdvance: core.bool}],
-      [dartx.openKeyCursor]: [async.Stream$(Cursor), [], {key: dart.dynamic, range: KeyRange, direction: core.String, autoAdvance: core.bool}],
+      [dartx.openCursor]: [async.Stream$(CursorWithValue), [], { key: dart.dynamic, range: KeyRange, direction: core.String, autoAdvance: core.bool }],
+      [dartx.openKeyCursor]: [async.Stream$(Cursor), [], { key: dart.dynamic, range: KeyRange, direction: core.String, autoAdvance: core.bool }],
       [_count]: [Request, [core.Object]],
       [_get]: [Request, [core.Object]],
       [_getKey]: [Request, [core.Object]],
@@ -592,12 +531,7 @@ dart_library.library('dart/indexed_db', null, /* Imports */[
   });
   Index[dart.metadata] = () => [dart.const(new _metadata.DomName('IDBIndex')), dart.const(new _metadata.Unstable()), dart.const(new _js_helper.Native("IDBIndex"))];
   dart.registerExtension(dart.global.IDBIndex, Index);
-  dart.defineExtensionNames([
-    'lower',
-    'lowerOpen',
-    'upper',
-    'upperOpen'
-  ]);
+  dart.defineExtensionNames(['lower', 'lowerOpen', 'upper', 'upperOpen']);
   class KeyRange extends _interceptors.Interceptor {
     static only(value) {
       return _KeyRangeFactoryProvider.createKeyRange_only(value);
@@ -661,24 +595,7 @@ dart_library.library('dart/indexed_db', null, /* Imports */[
   const _createIndex_4 = Symbol('_createIndex_4');
   const _put_1 = Symbol('_put_1');
   const _put_2 = Symbol('_put_2');
-  dart.defineExtensionNames([
-    'add',
-    'clear',
-    'delete',
-    'count',
-    'put',
-    'getObject',
-    'openCursor',
-    'createIndex',
-    'deleteIndex',
-    'index',
-    'openKeyCursor',
-    'autoIncrement',
-    'indexNames',
-    'keyPath',
-    'name',
-    'transaction'
-  ]);
+  dart.defineExtensionNames(['add', 'clear', 'delete', 'count', 'put', 'getObject', 'openCursor', 'createIndex', 'deleteIndex', 'index', 'openKeyCursor', 'autoIncrement', 'indexNames', 'keyPath', 'name', 'transaction']);
   class ObjectStore extends _interceptors.Interceptor {
     [dartx.add](value, key) {
       if (key === void 0) key = null;
@@ -694,7 +611,6 @@ dart_library.library('dart/indexed_db', null, /* Imports */[
         let stacktrace = dart.stackTrace(e);
         return async.Future.error(e, stacktrace);
       }
-
     }
     [dartx.clear]() {
       try {
@@ -703,7 +619,6 @@ dart_library.library('dart/indexed_db', null, /* Imports */[
         let stacktrace = dart.stackTrace(e);
         return async.Future.error(e, stacktrace);
       }
-
     }
     [dartx.delete](key_OR_keyRange) {
       try {
@@ -712,7 +627,6 @@ dart_library.library('dart/indexed_db', null, /* Imports */[
         let stacktrace = dart.stackTrace(e);
         return async.Future.error(e, stacktrace);
       }
-
     }
     [dartx.count](key_OR_range) {
       if (key_OR_range === void 0) key_OR_range = null;
@@ -723,7 +637,6 @@ dart_library.library('dart/indexed_db', null, /* Imports */[
         let stacktrace = dart.stackTrace(e);
         return async.Future$(core.int).error(e, stacktrace);
       }
-
     }
     [dartx.put](value, key) {
       if (key === void 0) key = null;
@@ -739,7 +652,6 @@ dart_library.library('dart/indexed_db', null, /* Imports */[
         let stacktrace = dart.stackTrace(e);
         return async.Future.error(e, stacktrace);
       }
-
     }
     [dartx.getObject](key) {
       try {
@@ -749,7 +661,6 @@ dart_library.library('dart/indexed_db', null, /* Imports */[
         let stacktrace = dart.stackTrace(e);
         return async.Future.error(e, stacktrace);
       }
-
     }
     [dartx.openCursor](opts) {
       let key = opts && 'key' in opts ? opts.key : null;
@@ -892,7 +803,7 @@ dart_library.library('dart/indexed_db', null, /* Imports */[
       return this.put(value);
     }
     static _cursorStreamFromResult(request, autoAdvance) {
-      let controller = async.StreamController.new({sync: true});
+      let controller = async.StreamController.new({ sync: true });
       request[dartx.onError].listen(dart.bind(controller, 'addError'));
       request[dartx.onSuccess].listen(dart.fn(e => {
         let cursor = dart.as(request[dartx.result], Cursor);
@@ -909,7 +820,7 @@ dart_library.library('dart/indexed_db', null, /* Imports */[
     }
   }
   dart.setSignature(ObjectStore, {
-    constructors: () => ({_: [ObjectStore, []]}),
+    constructors: () => ({ _: [ObjectStore, []] }),
     methods: () => ({
       [dartx.add]: [async.Future, [dart.dynamic], [dart.dynamic]],
       [dartx.clear]: [async.Future, []],
@@ -917,8 +828,8 @@ dart_library.library('dart/indexed_db', null, /* Imports */[
       [dartx.count]: [async.Future$(core.int), [], [dart.dynamic]],
       [dartx.put]: [async.Future, [dart.dynamic], [dart.dynamic]],
       [dartx.getObject]: [async.Future, [dart.dynamic]],
-      [dartx.openCursor]: [async.Stream$(CursorWithValue), [], {key: dart.dynamic, range: KeyRange, direction: core.String, autoAdvance: core.bool}],
-      [dartx.createIndex]: [Index, [core.String, dart.dynamic], {unique: core.bool, multiEntry: core.bool}],
+      [dartx.openCursor]: [async.Stream$(CursorWithValue), [], { key: dart.dynamic, range: KeyRange, direction: core.String, autoAdvance: core.bool }],
+      [dartx.createIndex]: [Index, [core.String, dart.dynamic], { unique: core.bool, multiEntry: core.bool }],
       [_add]: [Request, [dart.dynamic], [dart.dynamic]],
       [_add_1]: [Request, [dart.dynamic, dart.dynamic]],
       [_add_2]: [Request, [dart.dynamic]],
@@ -939,21 +850,13 @@ dart_library.library('dart/indexed_db', null, /* Imports */[
       [_put_1]: [Request, [dart.dynamic, dart.dynamic]],
       [_put_2]: [Request, [dart.dynamic]]
     }),
-    statics: () => ({_cursorStreamFromResult: [async.Stream$(Cursor), [Request, core.bool]]}),
+    statics: () => ({ _cursorStreamFromResult: [async.Stream$(Cursor), [Request, core.bool]] }),
     names: ['_cursorStreamFromResult']
   });
   ObjectStore[dart.metadata] = () => [dart.const(new _metadata.DomName('IDBObjectStore')), dart.const(new _metadata.Unstable()), dart.const(new _js_helper.Native("IDBObjectStore"))];
   dart.registerExtension(dart.global.IDBObjectStore, ObjectStore);
   const _get_result = Symbol('_get_result');
-  dart.defineExtensionNames([
-    'result',
-    'onError',
-    'onSuccess',
-    'error',
-    'readyState',
-    'source',
-    'transaction'
-  ]);
+  dart.defineExtensionNames(['result', 'onError', 'onSuccess', 'error', 'readyState', 'source', 'transaction']);
   class Request extends html.EventTarget {
     static _() {
       dart.throw(new core.UnsupportedError("Not supported"));
@@ -984,16 +887,13 @@ dart_library.library('dart/indexed_db', null, /* Imports */[
     }
   }
   dart.setSignature(Request, {
-    constructors: () => ({_: [Request, []]})
+    constructors: () => ({ _: [Request, []] })
   });
   Request[dart.metadata] = () => [dart.const(new _metadata.DocsEditable()), dart.const(new _metadata.DomName('IDBRequest')), dart.const(new _metadata.Unstable()), dart.const(new _js_helper.Native("IDBRequest"))];
   Request.errorEvent = dart.const(new (html.EventStreamProvider$(html.Event))('error'));
   Request.successEvent = dart.const(new (html.EventStreamProvider$(html.Event))('success'));
   dart.registerExtension(dart.global.IDBRequest, Request);
-  dart.defineExtensionNames([
-    'onBlocked',
-    'onUpgradeNeeded'
-  ]);
+  dart.defineExtensionNames(['onBlocked', 'onUpgradeNeeded']);
   class OpenDBRequest extends Request {
     static _() {
       dart.throw(new core.UnsupportedError("Not supported"));
@@ -1006,7 +906,7 @@ dart_library.library('dart/indexed_db', null, /* Imports */[
     }
   }
   dart.setSignature(OpenDBRequest, {
-    constructors: () => ({_: [OpenDBRequest, []]})
+    constructors: () => ({ _: [OpenDBRequest, []] })
   });
   OpenDBRequest[dart.metadata] = () => [dart.const(new _metadata.DocsEditable()), dart.const(new _metadata.DomName('IDBOpenDBRequest')), dart.const(new _metadata.Unstable()), dart.const(new _js_helper.Native("IDBOpenDBRequest,IDBVersionChangeRequest"))];
   OpenDBRequest.blockedEvent = dart.const(new (html.EventStreamProvider$(html.Event))('blocked'));
@@ -1016,17 +916,7 @@ dart_library.library('dart/indexed_db', null, /* Imports */[
     }
   });
   dart.registerExtension(dart.global.IDBOpenDBRequest, OpenDBRequest);
-  dart.defineExtensionNames([
-    'completed',
-    'abort',
-    'objectStore',
-    'onAbort',
-    'onComplete',
-    'onError',
-    'db',
-    'error',
-    'mode'
-  ]);
+  dart.defineExtensionNames(['completed', 'abort', 'objectStore', 'onAbort', 'onComplete', 'onError', 'db', 'error', 'mode']);
   class Transaction extends html.EventTarget {
     get [dartx.completed]() {
       let completer = async.Completer$(Database).new();
@@ -1072,7 +962,7 @@ dart_library.library('dart/indexed_db', null, /* Imports */[
     }
   }
   dart.setSignature(Transaction, {
-    constructors: () => ({_: [Transaction, []]}),
+    constructors: () => ({ _: [Transaction, []] }),
     methods: () => ({
       [dartx.abort]: [dart.void, []],
       [dartx.objectStore]: [ObjectStore, [core.String]]
@@ -1083,12 +973,7 @@ dart_library.library('dart/indexed_db', null, /* Imports */[
   Transaction.completeEvent = dart.const(new (html.EventStreamProvider$(html.Event))('complete'));
   Transaction.errorEvent = dart.const(new (html.EventStreamProvider$(html.Event))('error'));
   dart.registerExtension(dart.global.IDBTransaction, Transaction);
-  dart.defineExtensionNames([
-    'dataLoss',
-    'dataLossMessage',
-    'newVersion',
-    'oldVersion'
-  ]);
+  dart.defineExtensionNames(['dataLoss', 'dataLossMessage', 'newVersion', 'oldVersion']);
   class VersionChangeEvent extends html.Event {
     static _() {
       dart.throw(new core.UnsupportedError("Not supported"));
@@ -1107,7 +992,7 @@ dart_library.library('dart/indexed_db', null, /* Imports */[
     }
   }
   dart.setSignature(VersionChangeEvent, {
-    constructors: () => ({_: [VersionChangeEvent, []]})
+    constructors: () => ({ _: [VersionChangeEvent, []] })
   });
   VersionChangeEvent[dart.metadata] = () => [dart.const(new _metadata.DocsEditable()), dart.const(new _metadata.DomName('IDBVersionChangeEvent')), dart.const(new _metadata.Unstable()), dart.const(new _js_helper.Native("IDBVersionChangeEvent"))];
   dart.registerExtension(dart.global.IDBVersionChangeEvent, VersionChangeEvent);

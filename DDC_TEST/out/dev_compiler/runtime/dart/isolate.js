@@ -1,11 +1,6 @@
-dart_library.library('dart/isolate', null, /* Imports */[
-  'dart/_runtime',
-  'dart/core',
-  'dart/async'
-], /* Lazy imports */[
-  'dart/_isolate_helper'
-], function(exports, dart, core, async, _isolate_helper) {
+dart_library.library('dart/isolate', null, /* Imports */['dart/_runtime', 'dart/core', 'dart/async'], /* Lazy imports */['dart/_isolate_helper'], function (exports, dart, core, async, _isolate_helper) {
   'use strict';
+
   let dartx = dart.dartx;
   class Capability extends core.Object {
     static new() {
@@ -13,19 +8,19 @@ dart_library.library('dart/isolate', null, /* Imports */[
     }
   }
   dart.setSignature(Capability, {
-    constructors: () => ({new: [Capability, []]})
+    constructors: () => ({ new: [Capability, []] })
   });
   class IsolateSpawnException extends core.Object {
     IsolateSpawnException(message) {
       this.message = message;
     }
     toString() {
-      return `IsolateSpawnException: ${this.message}`;
+      return `IsolateSpawnException: ${ this.message }`;
     }
   }
   IsolateSpawnException[dart.implements] = () => [core.Exception];
   dart.setSignature(IsolateSpawnException, {
-    constructors: () => ({IsolateSpawnException: [IsolateSpawnException, [core.String]]})
+    constructors: () => ({ IsolateSpawnException: [IsolateSpawnException, [core.String]] })
   });
   const _pause = Symbol('_pause');
   class Isolate extends core.Object {
@@ -42,12 +37,11 @@ dart_library.library('dart/isolate', null, /* Imports */[
     static spawn(entryPoint, message, opts) {
       let paused = opts && 'paused' in opts ? opts.paused : false;
       try {
-        return _isolate_helper.IsolateNatives.spawnFunction(entryPoint, message, paused).then(dart.fn(msg => new Isolate(dart.as(msg[dartx.get](1), SendPort), {pauseCapability: dart.as(msg[dartx.get](2), Capability), terminateCapability: dart.as(msg[dartx.get](3), Capability)}), Isolate, [core.List]));
+        return _isolate_helper.IsolateNatives.spawnFunction(entryPoint, message, paused).then(dart.fn(msg => new Isolate(dart.as(msg[dartx.get](1), SendPort), { pauseCapability: dart.as(msg[dartx.get](2), Capability), terminateCapability: dart.as(msg[dartx.get](3), Capability) }), Isolate, [core.List]));
       } catch (e) {
         let st = dart.stackTrace(e);
         return async.Future$(Isolate).error(e, st);
       }
-
     }
     static spawnUri(uri, args, message, opts) {
       let paused = opts && 'paused' in opts ? opts.paused : false;
@@ -57,18 +51,17 @@ dart_library.library('dart/isolate', null, /* Imports */[
         if (dart.is(args, core.List)) {
           for (let i = 0; i < dart.notNull(args[dartx.length]); i++) {
             if (!(typeof args[dartx.get](i) == 'string')) {
-              dart.throw(new core.ArgumentError(`Args must be a list of Strings ${args}`));
+              dart.throw(new core.ArgumentError(`Args must be a list of Strings ${ args }`));
             }
           }
         } else if (args != null) {
-          dart.throw(new core.ArgumentError(`Args must be a list of Strings ${args}`));
+          dart.throw(new core.ArgumentError(`Args must be a list of Strings ${ args }`));
         }
-        return _isolate_helper.IsolateNatives.spawnUri(uri, args, message, paused).then(dart.fn(msg => new Isolate(dart.as(msg[dartx.get](1), SendPort), {pauseCapability: dart.as(msg[dartx.get](2), Capability), terminateCapability: dart.as(msg[dartx.get](3), Capability)}), Isolate, [core.List]));
+        return _isolate_helper.IsolateNatives.spawnUri(uri, args, message, paused).then(dart.fn(msg => new Isolate(dart.as(msg[dartx.get](1), SendPort), { pauseCapability: dart.as(msg[dartx.get](2), Capability), terminateCapability: dart.as(msg[dartx.get](3), Capability) }), Isolate, [core.List]));
       } catch (e) {
         let st = dart.stackTrace(e);
         return async.Future$(Isolate).error(e, st);
       }
-
     }
     pause(resumeCapability) {
       if (resumeCapability === void 0) resumeCapability = null;
@@ -142,19 +135,19 @@ dart_library.library('dart/isolate', null, /* Imports */[
         controller.addError(error, error.stackTrace);
       }
       dart.fn(handleError, dart.void, [dart.dynamic]);
-      controller = async.StreamController.broadcast({sync: true, onListen: dart.fn(() => {
+      controller = async.StreamController.broadcast({ sync: true, onListen: dart.fn(() => {
           port = RawReceivePort.new(handleError);
           this.addErrorListener(port.sendPort);
         }, dart.void, []), onCancel: dart.fn(() => {
           this.removeErrorListener(port.sendPort);
           port.close();
           port = null;
-        }, dart.void, [])});
+        }, dart.void, []) });
       return controller.stream;
     }
   }
   dart.setSignature(Isolate, {
-    constructors: () => ({Isolate: [Isolate, [SendPort], {pauseCapability: Capability, terminateCapability: Capability}]}),
+    constructors: () => ({ Isolate: [Isolate, [SendPort], { pauseCapability: Capability, terminateCapability: Capability }] }),
     methods: () => ({
       pause: [Capability, [], [Capability]],
       [_pause]: [dart.void, [Capability]],
@@ -168,8 +161,8 @@ dart_library.library('dart/isolate', null, /* Imports */[
       removeErrorListener: [dart.void, [SendPort]]
     }),
     statics: () => ({
-      spawn: [async.Future$(Isolate), [dart.functionType(dart.void, [dart.dynamic]), dart.dynamic], {paused: core.bool}],
-      spawnUri: [async.Future$(Isolate), [core.Uri, core.List$(core.String), dart.dynamic], {paused: core.bool, packageRoot: core.Uri}]
+      spawn: [async.Future$(Isolate), [dart.functionType(dart.void, [dart.dynamic]), dart.dynamic], { paused: core.bool }],
+      spawnUri: [async.Future$(Isolate), [core.Uri, core.List$(core.String), dart.dynamic], { paused: core.bool, packageRoot: core.Uri }]
     }),
     names: ['spawn', 'spawnUri']
   });
@@ -205,7 +198,7 @@ dart_library.library('dart/isolate', null, /* Imports */[
     }
   }
   dart.setSignature(RawReceivePort, {
-    constructors: () => ({new: [RawReceivePort, [], [dart.functionType(dart.void, [dart.dynamic])]]})
+    constructors: () => ({ new: [RawReceivePort, [], [dart.functionType(dart.void, [dart.dynamic])]] })
   });
   class _IsolateUnhandledException extends core.Object {
     _IsolateUnhandledException(message, source, stackTrace) {
@@ -214,12 +207,12 @@ dart_library.library('dart/isolate', null, /* Imports */[
       this.stackTrace = stackTrace;
     }
     toString() {
-      return 'IsolateUnhandledException: exception while handling message: ' + `${this.message} \n  ` + `${dart.toString(this.source)[dartx.replaceAll]("\n", "\n  ")}\n` + 'original stack trace:\n  ' + `${dart.toString(this.stackTrace)[dartx.replaceAll]("\n", "\n  ")}`;
+      return 'IsolateUnhandledException: exception while handling message: ' + `${ this.message } \n  ` + `${ dart.toString(this.source)[dartx.replaceAll]("\n", "\n  ") }\n` + 'original stack trace:\n  ' + `${ dart.toString(this.stackTrace)[dartx.replaceAll]("\n", "\n  ") }`;
     }
   }
   _IsolateUnhandledException[dart.implements] = () => [core.Exception];
   dart.setSignature(_IsolateUnhandledException, {
-    constructors: () => ({_IsolateUnhandledException: [_IsolateUnhandledException, [dart.dynamic, dart.dynamic, core.StackTrace]]})
+    constructors: () => ({ _IsolateUnhandledException: [_IsolateUnhandledException, [dart.dynamic, dart.dynamic, core.StackTrace]] })
   });
   const _description = Symbol('_description');
   class RemoteError extends core.Object {
@@ -233,7 +226,7 @@ dart_library.library('dart/isolate', null, /* Imports */[
   }
   RemoteError[dart.implements] = () => [core.Error];
   dart.setSignature(RemoteError, {
-    constructors: () => ({RemoteError: [RemoteError, [core.String, core.String]]})
+    constructors: () => ({ RemoteError: [RemoteError, [core.String, core.String]] })
   });
   const _trace = Symbol('_trace');
   class _RemoteStackTrace extends core.Object {
@@ -246,7 +239,7 @@ dart_library.library('dart/isolate', null, /* Imports */[
   }
   _RemoteStackTrace[dart.implements] = () => [core.StackTrace];
   dart.setSignature(_RemoteStackTrace, {
-    constructors: () => ({_RemoteStackTrace: [_RemoteStackTrace, [core.String]]})
+    constructors: () => ({ _RemoteStackTrace: [_RemoteStackTrace, [core.String]] })
   });
   // Exports:
   exports.Capability = Capability;

@@ -1,9 +1,6 @@
-dart_library.library('dart/_js_primitives', null, /* Imports */[
-  'dart/_runtime',
-  'dart/core'
-], /* Lazy imports */[
-], function(exports, dart, core) {
+dart_library.library('dart/_js_primitives', null, /* Imports */['dart/_runtime', 'dart/core'], /* Lazy imports */[], function (exports, dart, core) {
   'use strict';
+
   let dartx = dart.dartx;
   function printString(string) {
     if (typeof dartPrint == "function") {

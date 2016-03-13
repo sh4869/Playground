@@ -7,3 +7,4 @@ environment:
 description: dart dev compiler test
 dependencies:
   browser: '>=0.10.0+2 <0.11.0'
+  dev_compiler: 0.1.21

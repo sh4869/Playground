@@ -1,11 +1,6 @@
-dart_library.library('dart/_js_mirrors', null, /* Imports */[
-  'dart/_runtime',
-  'dart/_internal',
-  'dart/core',
-  'dart/mirrors'
-], /* Lazy imports */[
-], function(exports, dart, _internal, core, mirrors) {
+dart_library.library('dart/_js_mirrors', null, /* Imports */['dart/_runtime', 'dart/_internal', 'dart/core', 'dart/mirrors'], /* Lazy imports */[], function (exports, dart, _internal, core, mirrors) {
   'use strict';
+
   let dartx = dart.dartx;
   function getName(symbol) {
     return _internal.Symbol.getName(dart.as(symbol, _internal.Symbol));
@@ -86,7 +81,7 @@ dart_library.library('dart/_js_mirrors', null, /* Imports */[
   JsInstanceMirror[dart.implements] = () => [mirrors.InstanceMirror];
   dart.defineNamedConstructor(JsInstanceMirror, '_');
   dart.setSignature(JsInstanceMirror, {
-    constructors: () => ({_: [JsInstanceMirror, [core.Object]]}),
+    constructors: () => ({ _: [JsInstanceMirror, [core.Object]] }),
     methods: () => ({
       delegate: [dart.dynamic, [core.Invocation]],
       getField: [mirrors.InstanceMirror, [core.Symbol]],
@@ -209,7 +204,7 @@ dart_library.library('dart/_js_mirrors', null, /* Imports */[
   JsClassMirror[dart.implements] = () => [mirrors.ClassMirror];
   dart.defineNamedConstructor(JsClassMirror, '_');
   dart.setSignature(JsClassMirror, {
-    constructors: () => ({_: [JsClassMirror, [core.Type]]}),
+    constructors: () => ({ _: [JsClassMirror, [core.Type]] }),
     methods: () => ({
       newInstance: [mirrors.InstanceMirror, [core.Symbol, core.List], [core.Map$(core.Symbol, dart.dynamic)]],
       getField: [mirrors.InstanceMirror, [core.Symbol]],
@@ -268,7 +263,7 @@ dart_library.library('dart/_js_mirrors', null, /* Imports */[
   JsTypeMirror[dart.implements] = () => [mirrors.TypeMirror];
   dart.defineNamedConstructor(JsTypeMirror, '_');
   dart.setSignature(JsTypeMirror, {
-    constructors: () => ({_: [JsTypeMirror, [core.Type]]}),
+    constructors: () => ({ _: [JsTypeMirror, [core.Type]] }),
     methods: () => ({
       isAssignableTo: [core.bool, [mirrors.TypeMirror]],
       isSubtypeOf: [core.bool, [mirrors.TypeMirror]]
@@ -324,7 +319,7 @@ dart_library.library('dart/_js_mirrors', null, /* Imports */[
   JsParameterMirror[dart.implements] = () => [mirrors.ParameterMirror];
   dart.defineNamedConstructor(JsParameterMirror, '_');
   dart.setSignature(JsParameterMirror, {
-    constructors: () => ({_: [JsParameterMirror, [core.String, core.Type, core.List]]})
+    constructors: () => ({ _: [JsParameterMirror, [core.String, core.Type, core.List]] })
   });
   const _method = Symbol('_method');
   const _params = Symbol('_params');
@@ -431,8 +426,8 @@ dart_library.library('dart/_js_mirrors', null, /* Imports */[
   JsMethodMirror[dart.implements] = () => [mirrors.MethodMirror];
   dart.defineNamedConstructor(JsMethodMirror, '_');
   dart.setSignature(JsMethodMirror, {
-    constructors: () => ({_: [JsMethodMirror, [JsClassMirror, dart.dynamic]]}),
-    methods: () => ({[_createParameterMirrorList]: [core.List$(mirrors.ParameterMirror), [dart.dynamic]]})
+    constructors: () => ({ _: [JsMethodMirror, [JsClassMirror, dart.dynamic]] }),
+    methods: () => ({ [_createParameterMirrorList]: [core.List$(mirrors.ParameterMirror), [dart.dynamic]] })
   });
   // Exports:
   exports.getName = getName;

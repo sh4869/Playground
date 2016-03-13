@@ -1,9 +1,6 @@
-dart_library.library('dart/_metadata', null, /* Imports */[
-  'dart/_runtime',
-  'dart/core'
-], /* Lazy imports */[
-], function(exports, dart, core) {
+dart_library.library('dart/_metadata', null, /* Imports */['dart/_runtime', 'dart/core'], /* Lazy imports */[], function (exports, dart, core) {
   'use strict';
+
   let dartx = dart.dartx;
   class SupportedBrowser extends core.Object {
     SupportedBrowser(browserName, minimumVersion) {
@@ -13,7 +10,7 @@ dart_library.library('dart/_metadata', null, /* Imports */[
     }
   }
   dart.setSignature(SupportedBrowser, {
-    constructors: () => ({SupportedBrowser: [SupportedBrowser, [core.String], [core.String]]})
+    constructors: () => ({ SupportedBrowser: [SupportedBrowser, [core.String], [core.String]] })
   });
   SupportedBrowser.CHROME = "Chrome";
   SupportedBrowser.FIREFOX = "Firefox";
@@ -21,11 +18,10 @@ dart_library.library('dart/_metadata', null, /* Imports */[
   SupportedBrowser.OPERA = "Opera";
   SupportedBrowser.SAFARI = "Safari";
   class Experimental extends core.Object {
-    Experimental() {
-    }
+    Experimental() {}
   }
   dart.setSignature(Experimental, {
-    constructors: () => ({Experimental: [Experimental, []]})
+    constructors: () => ({ Experimental: [Experimental, []] })
   });
   class DomName extends core.Object {
     DomName(name) {
@@ -33,21 +29,19 @@ dart_library.library('dart/_metadata', null, /* Imports */[
     }
   }
   dart.setSignature(DomName, {
-    constructors: () => ({DomName: [DomName, [core.String]]})
+    constructors: () => ({ DomName: [DomName, [core.String]] })
   });
   class DocsEditable extends core.Object {
-    DocsEditable() {
-    }
+    DocsEditable() {}
   }
   dart.setSignature(DocsEditable, {
-    constructors: () => ({DocsEditable: [DocsEditable, []]})
+    constructors: () => ({ DocsEditable: [DocsEditable, []] })
   });
   class Unstable extends core.Object {
-    Unstable() {
-    }
+    Unstable() {}
   }
   dart.setSignature(Unstable, {
-    constructors: () => ({Unstable: [Unstable, []]})
+    constructors: () => ({ Unstable: [Unstable, []] })
   });
   // Exports:
   exports.SupportedBrowser = SupportedBrowser;

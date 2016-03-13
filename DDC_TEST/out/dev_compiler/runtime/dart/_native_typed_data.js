@@ -1,35 +1,8 @@
-dart_library.library('dart/_native_typed_data', null, /* Imports */[
-  'dart/_runtime',
-  'dart/core',
-  'dart/typed_data',
-  'dart/_js_helper',
-  'dart/collection',
-  'dart/_internal',
-  'dart/_interceptors',
-  'dart/math'
-], /* Lazy imports */[
-], function(exports, dart, core, typed_data, _js_helper, collection, _internal, _interceptors, math) {
+dart_library.library('dart/_native_typed_data', null, /* Imports */['dart/_runtime', 'dart/core', 'dart/typed_data', 'dart/_js_helper', 'dart/collection', 'dart/_internal', 'dart/_interceptors', 'dart/math'], /* Lazy imports */[], function (exports, dart, core, typed_data, _js_helper, collection, _internal, _interceptors, math) {
   'use strict';
+
   let dartx = dart.dartx;
-  dart.defineExtensionNames([
-    'lengthInBytes',
-    'runtimeType',
-    'asUint8List',
-    'asInt8List',
-    'asUint8ClampedList',
-    'asUint16List',
-    'asInt16List',
-    'asUint32List',
-    'asInt32List',
-    'asUint64List',
-    'asInt64List',
-    'asInt32x4List',
-    'asFloat32List',
-    'asFloat64List',
-    'asFloat32x4List',
-    'asFloat64x2List',
-    'asByteData'
-  ]);
+  dart.defineExtensionNames(['lengthInBytes', 'runtimeType', 'asUint8List', 'asInt8List', 'asUint8ClampedList', 'asUint16List', 'asInt16List', 'asUint32List', 'asInt32List', 'asUint64List', 'asInt64List', 'asInt32x4List', 'asFloat32List', 'asFloat64List', 'asFloat32x4List', 'asFloat64x2List', 'asByteData']);
   class NativeByteBuffer extends core.Object {
     get [dartx.lengthInBytes]() {
       return this.byteLength;
@@ -188,7 +161,7 @@ dart_library.library('dart/_native_typed_data', null, /* Imports */[
         }
         dart.throw(new core.RangeError.range(index, 0, dart.notNull(length) - 1));
       } else {
-        dart.throw(new core.ArgumentError(`Invalid list index ${index}`));
+        dart.throw(new core.ArgumentError(`Invalid list index ${ index }`));
       }
     }
     [_checkIndex](index, length) {
@@ -247,16 +220,7 @@ dart_library.library('dart/_native_typed_data', null, /* Imports */[
       sublist: [core.List$(typed_data.Float32x4), [core.int], [core.int]]
     })
   });
-  dart.defineExtensionMembers(NativeFloat32x4List, [
-    'get',
-    'set',
-    'sublist',
-    'buffer',
-    'lengthInBytes',
-    'offsetInBytes',
-    'elementSizeInBytes',
-    'length'
-  ]);
+  dart.defineExtensionMembers(NativeFloat32x4List, ['get', 'set', 'sublist', 'buffer', 'lengthInBytes', 'offsetInBytes', 'elementSizeInBytes', 'length']);
   class NativeInt32x4List extends dart.mixin(core.Object, collection.ListMixin$(typed_data.Int32x4), _internal.FixedLengthListMixin$(typed_data.Int32x4)) {
     NativeInt32x4List(length) {
       this[_storage] = NativeInt32List.new(dart.notNull(length) * 4);
@@ -303,7 +267,7 @@ dart_library.library('dart/_native_typed_data', null, /* Imports */[
         }
         dart.throw(new core.RangeError.range(index, 0, dart.notNull(length) - 1));
       } else {
-        dart.throw(new core.ArgumentError(`Invalid list index ${index}`));
+        dart.throw(new core.ArgumentError(`Invalid list index ${ index }`));
       }
     }
     [_checkIndex](index, length) {
@@ -362,16 +326,7 @@ dart_library.library('dart/_native_typed_data', null, /* Imports */[
       sublist: [core.List$(typed_data.Int32x4), [core.int], [core.int]]
     })
   });
-  dart.defineExtensionMembers(NativeInt32x4List, [
-    'get',
-    'set',
-    'sublist',
-    'buffer',
-    'lengthInBytes',
-    'offsetInBytes',
-    'elementSizeInBytes',
-    'length'
-  ]);
+  dart.defineExtensionMembers(NativeInt32x4List, ['get', 'set', 'sublist', 'buffer', 'lengthInBytes', 'offsetInBytes', 'elementSizeInBytes', 'length']);
   class NativeFloat64x2List extends dart.mixin(core.Object, collection.ListMixin$(typed_data.Float64x2), _internal.FixedLengthListMixin$(typed_data.Float64x2)) {
     NativeFloat64x2List(length) {
       this[_storage] = NativeFloat64List.new(dart.notNull(length) * 2);
@@ -416,7 +371,7 @@ dart_library.library('dart/_native_typed_data', null, /* Imports */[
         }
         dart.throw(new core.RangeError.range(index, 0, dart.notNull(length) - 1));
       } else {
-        dart.throw(new core.ArgumentError(`Invalid list index ${index}`));
+        dart.throw(new core.ArgumentError(`Invalid list index ${ index }`));
       }
     }
     [_checkIndex](index, length) {
@@ -471,22 +426,8 @@ dart_library.library('dart/_native_typed_data', null, /* Imports */[
       sublist: [core.List$(typed_data.Float64x2), [core.int], [core.int]]
     })
   });
-  dart.defineExtensionMembers(NativeFloat64x2List, [
-    'get',
-    'set',
-    'sublist',
-    'buffer',
-    'lengthInBytes',
-    'offsetInBytes',
-    'elementSizeInBytes',
-    'length'
-  ]);
-  dart.defineExtensionNames([
-    'buffer',
-    'lengthInBytes',
-    'offsetInBytes',
-    'elementSizeInBytes'
-  ]);
+  dart.defineExtensionMembers(NativeFloat64x2List, ['get', 'set', 'sublist', 'buffer', 'lengthInBytes', 'offsetInBytes', 'elementSizeInBytes', 'length']);
+  dart.defineExtensionNames(['buffer', 'lengthInBytes', 'offsetInBytes', 'elementSizeInBytes']);
   class NativeTypedData extends core.Object {
     get [dartx.buffer]() {
       return this.buffer;
@@ -509,7 +450,7 @@ dart_library.library('dart/_native_typed_data', null, /* Imports */[
         }
         dart.throw(new core.RangeError.range(index, 0, dart.notNull(length) - 1));
       } else {
-        dart.throw(new core.ArgumentError(`Invalid list index ${index}`));
+        dart.throw(new core.ArgumentError(`Invalid list index ${ index }`));
       }
     }
     [_checkIndex](index, length) {
@@ -534,7 +475,7 @@ dart_library.library('dart/_native_typed_data', null, /* Imports */[
     })
   });
   function _checkLength(length) {
-    if (!(typeof length == 'number')) dart.throw(new core.ArgumentError(`Invalid length ${length}`));
+    if (!(typeof length == 'number')) dart.throw(new core.ArgumentError(`Invalid length ${ length }`));
     return dart.as(length, core.int);
   }
   dart.fn(_checkLength, core.int, [dart.dynamic]);
@@ -543,10 +484,10 @@ dart_library.library('dart/_native_typed_data', null, /* Imports */[
       dart.throw(new core.ArgumentError('Invalid view buffer'));
     }
     if (!(typeof offsetInBytes == 'number')) {
-      dart.throw(new core.ArgumentError(`Invalid view offsetInBytes ${offsetInBytes}`));
+      dart.throw(new core.ArgumentError(`Invalid view offsetInBytes ${ offsetInBytes }`));
     }
     if (length != null && !(typeof length == 'number')) {
-      dart.throw(new core.ArgumentError(`Invalid view length ${length}`));
+      dart.throw(new core.ArgumentError(`Invalid view length ${ length }`));
     }
   }
   dart.fn(_checkViewArguments, dart.void, [dart.dynamic, dart.dynamic, dart.dynamic]);
@@ -571,30 +512,7 @@ dart_library.library('dart/_native_typed_data', null, /* Imports */[
   const _setInt32 = Symbol('_setInt32');
   const _setUint16 = Symbol('_setUint16');
   const _setUint32 = Symbol('_setUint32');
-  dart.defineExtensionNames([
-    'runtimeType',
-    'elementSizeInBytes',
-    'getFloat32',
-    'getFloat64',
-    'getInt16',
-    'getInt32',
-    'getInt64',
-    'getInt8',
-    'getUint16',
-    'getUint32',
-    'getUint64',
-    'getUint8',
-    'setFloat32',
-    'setFloat64',
-    'setInt16',
-    'setInt32',
-    'setInt64',
-    'setInt8',
-    'setUint16',
-    'setUint32',
-    'setUint64',
-    'setUint8'
-  ]);
+  dart.defineExtensionNames(['runtimeType', 'elementSizeInBytes', 'getFloat32', 'getFloat64', 'getInt16', 'getInt32', 'getInt64', 'getInt8', 'getUint16', 'getUint32', 'getUint64', 'getUint8', 'setFloat32', 'setFloat64', 'setInt16', 'setInt32', 'setInt64', 'setInt8', 'setUint16', 'setUint32', 'setUint64', 'setUint8']);
   class NativeByteData extends NativeTypedData {
     static new(length) {
       return NativeByteData._create1(_checkLength(length));
@@ -801,14 +719,9 @@ dart_library.library('dart/_native_typed_data', null, /* Imports */[
   }
   NativeTypedArray[dart.implements] = () => [_js_helper.JavaScriptIndexingBehavior];
   dart.setSignature(NativeTypedArray, {
-    methods: () => ({[_setRangeFast]: [dart.void, [core.int, core.int, NativeTypedArray, core.int]]})
+    methods: () => ({ [_setRangeFast]: [dart.void, [core.int, core.int, NativeTypedArray, core.int]] })
   });
-  dart.defineExtensionNames([
-    'length',
-    'get',
-    'set',
-    'setRange'
-  ]);
+  dart.defineExtensionNames(['length', 'get', 'set', 'setRange']);
   class NativeTypedArrayOfDouble extends dart.mixin(NativeTypedArray, collection.ListMixin$(core.double), _internal.FixedLengthListMixin$(core.double)) {
     get [dartx.length]() {
       return this.length;
@@ -838,11 +751,7 @@ dart_library.library('dart/_native_typed_data', null, /* Imports */[
       [dartx.setRange]: [dart.void, [core.int, core.int, core.Iterable$(core.double)], [core.int]]
     })
   });
-  dart.defineExtensionNames([
-    'length',
-    'set',
-    'setRange'
-  ]);
+  dart.defineExtensionNames(['length', 'set', 'setRange']);
   class NativeTypedArrayOfInt extends dart.mixin(NativeTypedArray, collection.ListMixin$(core.int), _internal.FixedLengthListMixin$(core.int)) {
     get [dartx.length]() {
       return this.length;
@@ -868,10 +777,7 @@ dart_library.library('dart/_native_typed_data', null, /* Imports */[
       [dartx.setRange]: [dart.void, [core.int, core.int, core.Iterable$(core.int)], [core.int]]
     })
   });
-  dart.defineExtensionNames([
-    'runtimeType',
-    'sublist'
-  ]);
+  dart.defineExtensionNames(['runtimeType', 'sublist']);
   class NativeFloat32List extends NativeTypedArrayOfDouble {
     static new(length) {
       return NativeFloat32List._create1(_checkLength(length));
@@ -909,7 +815,7 @@ dart_library.library('dart/_native_typed_data', null, /* Imports */[
       fromList: [NativeFloat32List, [core.List$(core.double)]],
       view: [NativeFloat32List, [typed_data.ByteBuffer, core.int, core.int]]
     }),
-    methods: () => ({[dartx.sublist]: [core.List$(core.double), [core.int], [core.int]]}),
+    methods: () => ({ [dartx.sublist]: [core.List$(core.double), [core.int], [core.int]] }),
     statics: () => ({
       _create1: [NativeFloat32List, [dart.dynamic]],
       _create2: [NativeFloat32List, [dart.dynamic, dart.dynamic]],
@@ -919,10 +825,7 @@ dart_library.library('dart/_native_typed_data', null, /* Imports */[
   });
   NativeFloat32List[dart.metadata] = () => [dart.const(new _js_helper.Native("Float32Array"))];
   dart.registerExtension(dart.global.Float32Array, NativeFloat32List);
-  dart.defineExtensionNames([
-    'runtimeType',
-    'sublist'
-  ]);
+  dart.defineExtensionNames(['runtimeType', 'sublist']);
   class NativeFloat64List extends NativeTypedArrayOfDouble {
     static new(length) {
       return NativeFloat64List._create1(_checkLength(length));
@@ -960,7 +863,7 @@ dart_library.library('dart/_native_typed_data', null, /* Imports */[
       fromList: [NativeFloat64List, [core.List$(core.double)]],
       view: [NativeFloat64List, [typed_data.ByteBuffer, core.int, core.int]]
     }),
-    methods: () => ({[dartx.sublist]: [core.List$(core.double), [core.int], [core.int]]}),
+    methods: () => ({ [dartx.sublist]: [core.List$(core.double), [core.int], [core.int]] }),
     statics: () => ({
       _create1: [NativeFloat64List, [dart.dynamic]],
       _create2: [NativeFloat64List, [dart.dynamic, dart.dynamic]],
@@ -970,11 +873,7 @@ dart_library.library('dart/_native_typed_data', null, /* Imports */[
   });
   NativeFloat64List[dart.metadata] = () => [dart.const(new _js_helper.Native("Float64Array"))];
   dart.registerExtension(dart.global.Float64Array, NativeFloat64List);
-  dart.defineExtensionNames([
-    'runtimeType',
-    'get',
-    'sublist'
-  ]);
+  dart.defineExtensionNames(['runtimeType', 'get', 'sublist']);
   class NativeInt16List extends NativeTypedArrayOfInt {
     static new(length) {
       return NativeInt16List._create1(_checkLength(length));
@@ -1029,11 +928,7 @@ dart_library.library('dart/_native_typed_data', null, /* Imports */[
   });
   NativeInt16List[dart.metadata] = () => [dart.const(new _js_helper.Native("Int16Array"))];
   dart.registerExtension(dart.global.Int16Array, NativeInt16List);
-  dart.defineExtensionNames([
-    'runtimeType',
-    'get',
-    'sublist'
-  ]);
+  dart.defineExtensionNames(['runtimeType', 'get', 'sublist']);
   class NativeInt32List extends NativeTypedArrayOfInt {
     static new(length) {
       return NativeInt32List._create1(_checkLength(length));
@@ -1088,11 +983,7 @@ dart_library.library('dart/_native_typed_data', null, /* Imports */[
   });
   NativeInt32List[dart.metadata] = () => [dart.const(new _js_helper.Native("Int32Array"))];
   dart.registerExtension(dart.global.Int32Array, NativeInt32List);
-  dart.defineExtensionNames([
-    'runtimeType',
-    'get',
-    'sublist'
-  ]);
+  dart.defineExtensionNames(['runtimeType', 'get', 'sublist']);
   class NativeInt8List extends NativeTypedArrayOfInt {
     static new(length) {
       return NativeInt8List._create1(_checkLength(length));
@@ -1147,11 +1038,7 @@ dart_library.library('dart/_native_typed_data', null, /* Imports */[
   });
   NativeInt8List[dart.metadata] = () => [dart.const(new _js_helper.Native("Int8Array"))];
   dart.registerExtension(dart.global.Int8Array, NativeInt8List);
-  dart.defineExtensionNames([
-    'runtimeType',
-    'get',
-    'sublist'
-  ]);
+  dart.defineExtensionNames(['runtimeType', 'get', 'sublist']);
   class NativeUint16List extends NativeTypedArrayOfInt {
     static new(length) {
       return NativeUint16List._create1(_checkLength(length));
@@ -1206,11 +1093,7 @@ dart_library.library('dart/_native_typed_data', null, /* Imports */[
   });
   NativeUint16List[dart.metadata] = () => [dart.const(new _js_helper.Native("Uint16Array"))];
   dart.registerExtension(dart.global.Uint16Array, NativeUint16List);
-  dart.defineExtensionNames([
-    'runtimeType',
-    'get',
-    'sublist'
-  ]);
+  dart.defineExtensionNames(['runtimeType', 'get', 'sublist']);
   class NativeUint32List extends NativeTypedArrayOfInt {
     static new(length) {
       return NativeUint32List._create1(_checkLength(length));
@@ -1265,12 +1148,7 @@ dart_library.library('dart/_native_typed_data', null, /* Imports */[
   });
   NativeUint32List[dart.metadata] = () => [dart.const(new _js_helper.Native("Uint32Array"))];
   dart.registerExtension(dart.global.Uint32Array, NativeUint32List);
-  dart.defineExtensionNames([
-    'runtimeType',
-    'length',
-    'get',
-    'sublist'
-  ]);
+  dart.defineExtensionNames(['runtimeType', 'length', 'get', 'sublist']);
   class NativeUint8ClampedList extends NativeTypedArrayOfInt {
     static new(length) {
       return NativeUint8ClampedList._create1(_checkLength(length));
@@ -1328,12 +1206,7 @@ dart_library.library('dart/_native_typed_data', null, /* Imports */[
   });
   NativeUint8ClampedList[dart.metadata] = () => [dart.const(new _js_helper.Native("Uint8ClampedArray,CanvasPixelArray"))];
   dart.registerExtension(dart.global.Uint8ClampedArray, NativeUint8ClampedList);
-  dart.defineExtensionNames([
-    'runtimeType',
-    'length',
-    'get',
-    'sublist'
-  ]);
+  dart.defineExtensionNames(['runtimeType', 'length', 'get', 'sublist']);
   class NativeUint8List extends NativeTypedArrayOfInt {
     static new(length) {
       return NativeUint8List._create1(_checkLength(length));
@@ -1435,7 +1308,7 @@ dart_library.library('dart/_native_typed_data', null, /* Imports */[
       this.w = w;
     }
     toString() {
-      return `[${this.x}, ${this.y}, ${this.z}, ${this.w}]`;
+      return `[${ this.x }, ${ this.y }, ${ this.z }, ${ this.w }]`;
     }
     ['+'](other) {
       let _x = dart.notNull(this.x) + dart.notNull(other.x);
@@ -1549,7 +1422,10 @@ dart_library.library('dart/_native_typed_data', null, /* Imports */[
     }
     get signMask() {
       let view = NativeFloat32x4._uint32view;
-      let mx = null, my = null, mz = null, mw = null;
+      let mx = null,
+          my = null,
+          mz = null,
+          mw = null;
       NativeFloat32x4._list[dartx.set](0, this.x);
       NativeFloat32x4._list[dartx.set](1, this.y);
       NativeFloat32x4._list[dartx.set](2, this.z);
@@ -1562,7 +1438,7 @@ dart_library.library('dart/_native_typed_data', null, /* Imports */[
     }
     shuffle(m) {
       if (dart.notNull(m) < 0 || dart.notNull(m) > 255) {
-        dart.throw(new core.RangeError(`mask ${m} must be in the range [0..256)`));
+        dart.throw(new core.RangeError(`mask ${ m } must be in the range [0..256)`));
       }
       NativeFloat32x4._list[dartx.set](0, this.x);
       NativeFloat32x4._list[dartx.set](1, this.y);
@@ -1576,7 +1452,7 @@ dart_library.library('dart/_native_typed_data', null, /* Imports */[
     }
     shuffleMix(other, m) {
       if (dart.notNull(m) < 0 || dart.notNull(m) > 255) {
-        dart.throw(new core.RangeError(`mask ${m} must be in the range [0..256)`));
+        dart.throw(new core.RangeError(`mask ${ m } must be in the range [0..256)`));
       }
       NativeFloat32x4._list[dartx.set](0, this.x);
       NativeFloat32x4._list[dartx.set](1, this.y);
@@ -1683,7 +1559,7 @@ dart_library.library('dart/_native_typed_data', null, /* Imports */[
       reciprocal: [typed_data.Float32x4, []],
       reciprocalSqrt: [typed_data.Float32x4, []]
     }),
-    statics: () => ({_truncate: [dart.dynamic, [dart.dynamic]]}),
+    statics: () => ({ _truncate: [dart.dynamic, [dart.dynamic]] }),
     names: ['_truncate']
   });
   dart.defineLazyProperties(NativeFloat32x4, {
@@ -1731,7 +1607,7 @@ dart_library.library('dart/_native_typed_data', null, /* Imports */[
       this.w = w;
     }
     toString() {
-      return `[${this.x}, ${this.y}, ${this.z}, ${this.w}]`;
+      return `[${ this.x }, ${ this.y }, ${ this.z }, ${ this.w }]`;
     }
     ['|'](other) {
       return new NativeInt32x4._truncated(this.x | other.x, this.y | other.y, this.z | other.z, this.w | other.w);
@@ -1760,7 +1636,7 @@ dart_library.library('dart/_native_typed_data', null, /* Imports */[
     }
     shuffle(mask) {
       if (dart.notNull(mask) < 0 || dart.notNull(mask) > 255) {
-        dart.throw(new core.RangeError(`mask ${mask} must be in the range [0..256)`));
+        dart.throw(new core.RangeError(`mask ${ mask } must be in the range [0..256)`));
       }
       NativeInt32x4._list[dartx.set](0, this.x);
       NativeInt32x4._list[dartx.set](1, this.y);
@@ -1774,7 +1650,7 @@ dart_library.library('dart/_native_typed_data', null, /* Imports */[
     }
     shuffleMix(other, mask) {
       if (dart.notNull(mask) < 0 || dart.notNull(mask) > 255) {
-        dart.throw(new core.RangeError(`mask ${mask} must be in the range [0..256)`));
+        dart.throw(new core.RangeError(`mask ${ mask } must be in the range [0..256)`));
       }
       NativeInt32x4._list[dartx.set](0, this.x);
       NativeInt32x4._list[dartx.set](1, this.y);
@@ -1893,7 +1769,7 @@ dart_library.library('dart/_native_typed_data', null, /* Imports */[
       withFlagW: [typed_data.Int32x4, [core.bool]],
       select: [typed_data.Float32x4, [typed_data.Float32x4, typed_data.Float32x4]]
     }),
-    statics: () => ({_truncate: [dart.dynamic, [dart.dynamic]]}),
+    statics: () => ({ _truncate: [dart.dynamic, [dart.dynamic]] }),
     names: ['_truncate']
   });
   dart.defineLazyProperties(NativeInt32x4, {
@@ -1922,7 +1798,7 @@ dart_library.library('dart/_native_typed_data', null, /* Imports */[
       this.y = y;
     }
     toString() {
-      return `[${this.x}, ${this.y}]`;
+      return `[${ this.x }, ${ this.y }]`;
     }
     ['+'](other) {
       return new NativeFloat64x2._doubles(dart.notNull(this.x) + dart.notNull(other.x), dart.notNull(this.y) + dart.notNull(other.y));
