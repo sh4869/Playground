@@ -1,0 +1,15 @@
+{
+  "name": "ddctest",
+  "version": "1.0.0",
+  "description": "dart dev compiler test",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "sh4869",
+  "license": "ISC",
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-babel": "^6.1.2"
+  }
+}

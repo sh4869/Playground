@@ -1,0 +1,9 @@
+name: DDC_TEST
+author: sh4869 <nobuk4869@gmail.com> # name <email>
+homepage: https://github.com/sh4869/Playground # https://github.com/user/repo
+version: 0.1.0
+environment:
+  sdk: '>=1.0.0 <2.0.0'
+description: dart dev compiler test
+dependencies:
+  browser: '>=0.10.0+2 <0.11.0'
