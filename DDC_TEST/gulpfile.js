@@ -9,10 +9,15 @@ gulp.task('babel',function(){
       .pipe(gulp.dest('out'));
 });
 
+gulp.task('copy',function(){
+  return     gulp.src(['es6/*.html'])
+      .pipe(gulp.dest('out'));
+})
+
 gulp.task('ddc',function(){
   return run('dartdevc -o es6 web/index.html').exec();
 })
 
 gulp.task('default',function(callback){
-  return runSequence('ddc','babel',callback);
+  return runSequence('ddc',['babel','copy'],callback);
 });
