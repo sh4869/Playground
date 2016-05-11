@@ -88,3 +88,11 @@ h4.works-title {
 .works > h5{
     margin: 0.5px;
 }
+
+.bxslider > li > a > img{
+	margin: 0 auto;
+}
+.bxslider > li > a > img {
+	min-height:200px;
+	min-width:200px;
+}
