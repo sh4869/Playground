@@ -1,0 +1,15 @@
+{
+    "manifest_version": 2,
+    "name": "My User Scripts",
+    "version": "0.1.0",
+    "description": "自作のユーザースクリプトです",
+    "permissions":[
+        "*://github.com/*"
+    ],
+    "content_scripts": [
+        {
+            "matches": ["*://github.com/*"],
+            "js": ["src/github-hide-contribute.js"]
+        }
+    ]
+}
