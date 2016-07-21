@@ -40,5 +40,5 @@ typings/
 app/
 src/js/
 
-# riku only
-.idea
+src/private/
+src/*.js
