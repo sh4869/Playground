@@ -10,7 +10,7 @@ int swp(int *a,int *b){
 
 int main(void){
     int a,b,skip = 1;
-    while(skip){
+    while(1){
         printf("数値を入力:");
         scanf("%d",&a);
         printf("数値を入力:");
@@ -23,5 +23,8 @@ int main(void){
         }
         printf("[続ける:1,終了:0]");
         scanf("%d",&skip);
+        if(skip == 0){
+          break;
+        }
     }
 }
