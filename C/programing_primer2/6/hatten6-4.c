@@ -20,7 +20,8 @@ int main(void){
         start = 0;
         j = 0;
       }
-    } else {
+    } 
+    if(start == 0){
       if(str2[i] == str1[j]){
         start = 1;
         j++;
@@ -30,6 +31,7 @@ int main(void){
         }
       }
     }
+
     i++;
   }
   printf("%sは%sの部分文字列ではありません\n",&str1[0],&str2[0]);
