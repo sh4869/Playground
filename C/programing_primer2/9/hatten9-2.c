@@ -24,5 +24,5 @@ int main(void){
   }
   complex result = prod(c[0],c[1]);
   printf("a * b = %d + %di です\n",result.re,result.im);
-  
+
 }
